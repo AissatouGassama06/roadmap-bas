@@ -58,7 +58,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .legend span{display:flex;align-items:center;gap:5px}
 .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
 .gantt-wrap{overflow-x:auto;background:#fff;border-radius:12px;border:1px solid #e8e8e8}
-table.gantt{width:100%;border-collapse:collapse;min-width:960px}
+table.gantt{width:100%;border-collapse:collapse;min-width:2400px}
+.gantt th.wk{font-size:8px;padding:3px 1px;min-width:22px;width:22px}
 .gantt th{font-weight:500;font-size:11px;color:#888;padding:10px 4px;border-bottom:1px solid #eee;text-align:center;position:sticky;top:0;background:#fff;z-index:1}
 .gantt th.proj-h{text-align:left;padding-left:16px;width:260px;min-width:260px}
 .gantt th.owner-h{width:70px;min-width:70px;text-align:center}
@@ -90,11 +91,11 @@ table.gantt{width:100%;border-collapse:collapse;min-width:960px}
 .tag-okr{background:#FEF3C7;color:#854F0B}
 .proj-name{cursor:default}
 .proj-name:hover{color:#378ADD}
-.tooltip{display:none;position:absolute;left:16px;top:100%;background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px 14px;font-size:11px;z-index:10;width:280px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.tooltip{display:none;position:fixed;background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px 14px;font-size:11px;z-index:1000;width:280px;box-shadow:0 4px 12px rgba(0,0,0,0.1);pointer-events:none}
 .tooltip .tt-title{font-weight:600;margin-bottom:4px;font-size:12px}
 .tooltip .tt-row{display:flex;justify-content:space-between;padding:2px 0;color:#555}
 .tooltip .tt-label{color:#888}
-tr:hover .tooltip{display:block}
+/* tooltip positioned via JS */
 .progress-wrap{margin-bottom:20px;background:#fff;border-radius:12px;border:1px solid #e8e8e8;padding:16px 20px}
 .progress-title{font-size:13px;font-weight:600;color:#1F3864;margin-bottom:10px}
 .progress-bar-bg{height:20px;background:#f0f0f0;border-radius:10px;overflow:hidden;display:flex}
@@ -156,8 +157,70 @@ tr:hover .tooltip{display:block}
 </div>
 
 <script>
-const M=['Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aou','Sep','Oct','Nov','Dec'];
-const NOW_M=4,NOW_D=11;
+const MNAMES=['Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aou','Sep','Oct','Nov','Dec'];
+const COLS=[
+{t:'w',l:'S1',g:'Jan',s:new Date(2025,11,29),e:new Date(2026,0,4)},
+{t:'w',l:'S2',g:'Jan',s:new Date(2026,0,5),e:new Date(2026,0,11)},
+{t:'w',l:'S3',g:'Jan',s:new Date(2026,0,12),e:new Date(2026,0,18)},
+{t:'w',l:'S4',g:'Jan',s:new Date(2026,0,19),e:new Date(2026,0,25)},
+{t:'w',l:'S5',g:'Jan',s:new Date(2026,0,26),e:new Date(2026,1,1)},
+{t:'w',l:'S6',g:'Fev',s:new Date(2026,1,2),e:new Date(2026,1,8)},
+{t:'w',l:'S7',g:'Fev',s:new Date(2026,1,9),e:new Date(2026,1,15)},
+{t:'w',l:'S8',g:'Fev',s:new Date(2026,1,16),e:new Date(2026,1,22)},
+{t:'w',l:'S9',g:'Fev',s:new Date(2026,1,23),e:new Date(2026,2,1)},
+{t:'w',l:'S10',g:'Mar',s:new Date(2026,2,2),e:new Date(2026,2,8)},
+{t:'w',l:'S11',g:'Mar',s:new Date(2026,2,9),e:new Date(2026,2,15)},
+{t:'w',l:'S12',g:'Mar',s:new Date(2026,2,16),e:new Date(2026,2,22)},
+{t:'w',l:'S13',g:'Mar',s:new Date(2026,2,23),e:new Date(2026,2,29)},
+{t:'w',l:'S14',g:'Avr',s:new Date(2026,2,30),e:new Date(2026,3,5)},
+{t:'w',l:'S15',g:'Avr',s:new Date(2026,3,6),e:new Date(2026,3,12)},
+{t:'w',l:'S16',g:'Avr',s:new Date(2026,3,13),e:new Date(2026,3,19)},
+{t:'w',l:'S17',g:'Avr',s:new Date(2026,3,20),e:new Date(2026,3,26)},
+{t:'w',l:'S18',g:'Avr',s:new Date(2026,3,27),e:new Date(2026,4,3)},
+{t:'w',l:'S19',g:'Mai',s:new Date(2026,4,4),e:new Date(2026,4,10)},
+{t:'w',l:'S20',g:'Mai',s:new Date(2026,4,11),e:new Date(2026,4,17)},
+{t:'w',l:'S21',g:'Mai',s:new Date(2026,4,18),e:new Date(2026,4,24)},
+{t:'w',l:'S22',g:'Mai',s:new Date(2026,4,25),e:new Date(2026,4,31)},
+{t:'w',l:'S23',g:'Jun',s:new Date(2026,5,1),e:new Date(2026,5,7)},
+{t:'w',l:'S24',g:'Jun',s:new Date(2026,5,8),e:new Date(2026,5,14)},
+{t:'w',l:'S25',g:'Jun',s:new Date(2026,5,15),e:new Date(2026,5,21)},
+{t:'w',l:'S26',g:'Jun',s:new Date(2026,5,22),e:new Date(2026,5,28)},
+{t:'w',l:'S27',g:'Jul',s:new Date(2026,5,29),e:new Date(2026,6,5)},
+{t:'w',l:'S28',g:'Jul',s:new Date(2026,6,6),e:new Date(2026,6,12)},
+{t:'w',l:'S29',g:'Jul',s:new Date(2026,6,13),e:new Date(2026,6,19)},
+{t:'w',l:'S30',g:'Jul',s:new Date(2026,6,20),e:new Date(2026,6,26)},
+{t:'w',l:'S31',g:'Jul',s:new Date(2026,6,27),e:new Date(2026,7,2)},
+{t:'w',l:'S32',g:'Aou',s:new Date(2026,7,3),e:new Date(2026,7,9)},
+{t:'w',l:'S33',g:'Aou',s:new Date(2026,7,10),e:new Date(2026,7,16)},
+{t:'w',l:'S34',g:'Aou',s:new Date(2026,7,17),e:new Date(2026,7,23)},
+{t:'w',l:'S35',g:'Aou',s:new Date(2026,7,24),e:new Date(2026,7,30)},
+{t:'w',l:'S36',g:'Sep',s:new Date(2026,7,31),e:new Date(2026,8,6)},
+{t:'w',l:'S37',g:'Sep',s:new Date(2026,8,7),e:new Date(2026,8,13)},
+{t:'w',l:'S38',g:'Sep',s:new Date(2026,8,14),e:new Date(2026,8,20)},
+{t:'w',l:'S39',g:'Sep',s:new Date(2026,8,21),e:new Date(2026,8,27)},
+{t:'w',l:'S40',g:'Oct',s:new Date(2026,8,28),e:new Date(2026,9,4)},
+{t:'w',l:'S41',g:'Oct',s:new Date(2026,9,5),e:new Date(2026,9,11)},
+{t:'w',l:'S42',g:'Oct',s:new Date(2026,9,12),e:new Date(2026,9,18)},
+{t:'w',l:'S43',g:'Oct',s:new Date(2026,9,19),e:new Date(2026,9,25)},
+{t:'w',l:'S44',g:'Oct',s:new Date(2026,9,26),e:new Date(2026,10,1)},
+{t:'w',l:'S45',g:'Nov',s:new Date(2026,10,2),e:new Date(2026,10,8)},
+{t:'w',l:'S46',g:'Nov',s:new Date(2026,10,9),e:new Date(2026,10,15)},
+{t:'w',l:'S47',g:'Nov',s:new Date(2026,10,16),e:new Date(2026,10,22)},
+{t:'w',l:'S48',g:'Nov',s:new Date(2026,10,23),e:new Date(2026,10,29)},
+{t:'w',l:'S49',g:'Dec',s:new Date(2026,10,30),e:new Date(2026,11,6)},
+{t:'w',l:'S50',g:'Dec',s:new Date(2026,11,7),e:new Date(2026,11,13)},
+{t:'w',l:'S51',g:'Dec',s:new Date(2026,11,14),e:new Date(2026,11,20)},
+{t:'w',l:'S52',g:'Dec',s:new Date(2026,11,21),e:new Date(2026,11,27)},
+{t:'w',l:'S53',g:'Dec',s:new Date(2026,11,28),e:new Date(2027,0,3)}
+];
+const NC=COLS.length;
+const TODAY=new Date(2026,4,11);
+function todayCol(){for(let i=0;i<NC;i++){if(TODAY>=COLS[i].s&&TODAY<=COLS[i].e)return i;}return -1;}
+function todayPct(){const i=todayCol();if(i<0)return 0;const c=COLS[i];return Math.round(((TODAY-c.s)/(c.e-c.s))*100);}
+const TC=todayCol(),TP=todayPct();
+function m2ds(m){return new Date(2026,m,1);}
+function m2de(m){return new Date(2026,m+1,0);}
+function colRange(p){const ds=p.ds?new Date(p.ds):m2ds(p.m[0]);const de=p.de?new Date(p.de):m2de(p.m[1]);let s=-1,e=-1;for(let i=0;i<NC;i++){if(ds<=COLS[i].e&&de>=COLS[i].s){if(s<0)s=i;e=i;}}return[s,e];}
 
 document.querySelectorAll('.tab').forEach(tab=>{
   tab.addEventListener('click',function(){
@@ -170,34 +233,32 @@ document.querySelectorAll('.tab').forEach(tab=>{
 
 const P=[
 {s:'Termines Q1-Q2 (historique)',id:'sec-done'},
-{n:'Scoring MEDDICCT - Accounts',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 1',okrt:'CRM',note:'En production depuis le 22/04'},
-{n:'Sales Layout Lot 2/3',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 2',okrt:'CRM',note:'Livre mi-Avril. Reste lot 3/3'},
-{n:'Brief Propriete Buyer Intents',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 3',okrt:'CRM',note:'Livre complet'},
-{n:'Brief Mailer Global Strategy',o:'Henri',st:'done',m:[2,3],cat:'crm',okr:'Brief 4',okrt:'CRM',note:'Champs livres'},
-{n:'Booking Secured / Business Stage',o:'Aissatou',st:'done',m:[2,3],cat:'crm',okr:'Brief 5',okrt:'CRM',note:'Reprise de donnees + doc'},
+{n:'Scoring MEDDICCT - Accounts',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 1',okrt:'CRM',burl:'https://docs.google.com/document/d/1cEZVom8eLcM-nhDzPdn7xEDtDkVrAsmtnKOltT8hHyI/edit?tab=t.0',b:2,dur:4,note:'En production depuis le 22/04'},
+{n:'Sales Layout Lot 2/3',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 2',okrt:'CRM',b:4,dur:2,note:'Livre mi-Avril. Reste lot 3/3'},
+{n:'Brief Propriete Buyer Intents',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 3',okrt:'CRM',burl:'https://docs.google.com/document/d/1hN1vAa0sqZ_ggEKD2we-sGSsnPk0e00RamcOGDlNBCg/edit?tab=t.0',b:5,dur:0.5,note:'Livre complet'},
+{n:'Brief Mailer Global Strategy',o:'Henri',st:'done',m:[2,3],cat:'crm',okr:'Brief 4',okrt:'CRM',burl:'https://docs.google.com/document/d/1AKZ7V_WsN4X5_S9StcZPadhYs1PIbMIAv8KMTL9mcJQ/edit?tab=t.0',b:6,dur:0.5,note:'Champs livres'},
+{n:'Booking Secured / Business Stage',o:'Aissatou',st:'done',m:[2,3],cat:'crm',okr:'Brief 5',okrt:'CRM',burl:'https://docs.google.com/document/d/1ALuz0BV2Mw5sGbeQ0hKvUTFcyVTzSPx4urAq5_cXcQk/edit?tab=t.0',b:1,dur:2,note:'Reprise de donnees + doc'},
 {n:'Product Users - Doc & deploiement',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 6',okrt:'CRM',note:'En production'},
 {n:'ICP Fit Scoring (Account Grading)',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 7',okrt:'CRM',note:'Livre en Avril'},
-{n:'Health Score',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 8',okrt:'CRM',note:'Livre apres retours Victor'},
-{n:'Campaign Model Standardization',o:'Henri',st:'done',m:[1,3],cat:'crm',note:'Termine Q1'},
-{n:'Lead Source Simplification',o:'Henri',st:'done',m:[1,2],cat:'crm',note:'Termine Q1'},
-{n:'Unified Account & Contact Targeting',o:'Henri',st:'done',m:[0,2],cat:'crm',note:'Termine Q1'},
+{n:'Health Score',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 8',okrt:'CRM',burl:'https://docs.google.com/document/d/1JiUuyRTKEETGqYveYIcRLTU1YeSfDmKemEpAr9uThHo/edit?tab=t.0',b:8,dur:2.5,note:'Livre apres retours Victor'},
+{n:'Account Targeting',o:'Henri',st:'done',m:[0,2],cat:'crm',note:'Termine Q1'},
 {n:'Global Process Mapping',o:'Aissatou',st:'done',m:[0,0],cat:'crm',note:'Termine Jan'},
 {s:'CRM - En cours (Mai)',id:'sec-wip'},
-{n:'Correction Booking Value',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 9',okrt:'CRM',note:'Finished (Monday 11/05)'},
-{n:'Targeted Contact',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 10',okrt:'CRM',note:'Finished (Monday 11/05)'},
-{n:'Verbal Call - Lightning Page',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 11',okrt:'CRM',note:'Livre le 30/04 (Monday: Finished)'},
-{n:'Churn & Retention Forecast',o:'Henri',st:'wip',m:[4,5],cat:'crm',note:'En cours (Monday: Working on it)'},
-{n:'Approval Process',o:'Aissatou',st:'todo',m:[4,5],cat:'crm',okr:'Brief 12',okrt:'CRM',note:'Priorise pour Mai'},
-{n:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'wip',m:[4,5],cat:'crm',note:'En cours (Monday: Working on it)'},
+{n:'Correction Booking Value',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 9',okrt:'CRM',burl:'https://docs.google.com/document/d/1nelxL62QCapen-vr_X7xlYjBUgYRZDiFRKnM2FdmxQk/edit?usp=sharing',b:9,dur:1,note:'Finished (Monday 11/05)'},
+{n:'Targeted Contact',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 10',okrt:'CRM',burl:'https://docs.google.com/document/d/1lIGkr01KRm7c5yvqoOFawgPNryjLTwHtxjsjHtJrV4U/edit?tab=t.0',b:10,dur:2,note:'Finished (Monday 11/05)'},
+{n:'Verbal Call - Lightning Page',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 11',okrt:'CRM',burl:'https://docs.google.com/document/d/1y4dyTsPABgcgkwN-YV9rId9UfiGzw8UC49O4WnEiR2g/edit?tab=t.0',b:7,dur:1,note:'Livre le 30/04 (Monday: Finished)'},
+{n:'Churn & Retention Forecast',o:'Henri',st:'wip',m:[4,5],ds:'2026-05-11',cat:'crm',burl:'https://docs.google.com/document/d/106mB8EWo9kBHlj8uU1z7U50oU2vTpL-Zup4OI96DocU/edit?tab=t.0',b:11,dur:1.5,note:'En cours (Monday: Working on it)'},
+{n:'Approval Process',o:'Aissatou',st:'todo',m:[4,5],cat:'crm',okr:'Brief 12',okrt:'CRM',burl:'https://docs.google.com/document/d/1nyw1rd3Cqvit9TY4RV1DOw0217awODcJ_ECop_AqmAs/edit?tab=t.0',b:15,note:'Priorise pour Mai'},
+{n:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'wip',m:[4,5],ds:'2026-05-11',cat:'crm',burl:'https://docs.google.com/document/d/1gmASqc9E9RoTPVlcTW7yWtyKRa7c34gtAOLkvamC0_w/edit?tab=t.0',b:14,dur:2.4,note:'En cours (Monday: Working on it)'},
 {n:'Refresh PREPROD & Sandboxes',o:'Henri',st:'todo',m:[4,5],cat:'infra',note:'Apres Booking Value'},
 {s:'CRM - Planifie (Juin)',id:'sec-jun'},
 {n:'Tomorro-SFDC: flow Generate Project',o:'Henri',st:'todo',m:[5,5],cat:'crm',note:'Rapprochement ID Tomorro/SFDC'},
 {n:'Product Users: retrait skills code',o:'Henri',st:'todo',m:[5,5],cat:'crm',note:'Suite deploiement Avril'},
-{n:'New Stage New Contract & Upsell',o:'Henri',st:'todo',m:[5,6],cat:'crm',note:'Revamp funnel'},
-{n:'Scoring MEDDICC - Opportunities',o:'Henri',st:'todo',m:[5,6],cat:'crm',note:'Extension scoring Accounts'},
-{n:'Trial & Onboarding Orchestration',o:'Henri',st:'todo',m:[5,6],cat:'crm',note:'Brief vers implementation'},
-{n:'SOD & Touch Level',o:'Henri',st:'todo',m:[5,5],cat:'crm',note:'3 conversations Monday'},
-{n:'Automatisation Booking Values',o:'TBD',st:'todo',m:[5,5],cat:'crm',note:'Brief en attente'},
+{n:'New Stage New Contract & Upsell',o:'Henri',st:'todo',m:[5,6],cat:'crm',burl:'https://docs.google.com/document/d/17ittpHQbNHnh0jdWJV4q3ZXSO_2BgUEvHmXNlMMwY_Y/edit?tab=t.0',b:16,dur:8,note:'Revamp funnel'},
+{n:'Scoring MEDDICC - Opportunities',o:'Henri',st:'todo',m:[5,6],cat:'crm',burl:'https://docs.google.com/document/d/1kfLwg4-vURMqL72SnCCPrjvwVHk3EO7kyjw3d1ZM9qg/edit?tab=t.0',b:17,dur:9.5,note:'Extension scoring Accounts'},
+{n:'Trial & Onboarding Orchestration',o:'Henri',st:'todo',m:[5,6],cat:'crm',burl:'https://docs.google.com/document/d/1vgnFAx-OK2bHtv7Bz8TQA7HUdFH-Yn7H4C0chZYOisE/edit?usp=sharing',b:18,note:'Brief vers implementation'},
+{n:'SOD & Touch Level',o:'Henri',st:'todo',m:[5,5],cat:'crm',burl:'https://docs.google.com/document/d/1qgJONYEaD3eSa8wBpL3NKXK1XjCvkuFDfH6YBqZTuyg/edit?tab=t.0',b:19,dur:1.5,note:'3 conversations Monday'},
+{n:'Automatisation Booking Values',o:'TBD',st:'todo',m:[5,5],cat:'crm',burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0',b:13,dur:2.65,note:'Brief en attente'},
 {n:'Decommissionnement Salesloft',o:'TBD',st:'todo',m:[5,6],cat:'crm',note:'Lie a Lemlist H2'},
 {s:'Agentique',id:'sec-agent'},
 {n:'Gouvernance agents Dust (n8n)',o:'Aissatou',st:'wip',m:[3,4],cat:'agent',okrt:'AI Indus',note:'Finaliser triage + tests'},
@@ -213,6 +274,8 @@ const P=[
 {n:'Recenser integrations SFDC',o:'Tous',st:'todo',m:[4,4],cat:'infra',note:'Prerequis users techniques'},
 {n:'Reconnecter ProductBoard',o:'Henri',st:'todo',m:[4,4],cat:'infra',note:'Voir Florent Gosselin'},
 {s:'Backlog H2 (priorise)',id:'sec-h2'},
+{n:'Campaign Model Standardization',o:'Henri',st:'todo',m:[6,8],cat:'crm',note:'Reporte en H2'},
+{n:'Lead Source Simplification',o:'Henri',st:'todo',m:[6,8],cat:'crm',note:'Reporte en H2'},
 {n:'Hygiene Campaign',o:'Henri',st:'todo',m:[6,11],cat:'crm',note:'Programme nettoyage continu'},
 {n:'CRM-Product Back Office Sync',o:'TBD',st:'todo',m:[6,8],cat:'crm',note:'Synchro bidirectionnelle'},
 {n:'CRM Data Reliability Program',o:'Expert IA',st:'todo',m:[7,9],cat:'crm',ai:true,okrt:'AI Indus',note:'Agent IA fiabilite donnees'},
@@ -255,80 +318,102 @@ document.querySelectorAll('.controls button').forEach(btn=>{
 
 function renderGantt(){
   const t=document.getElementById('gantt');
-  let h='<thead><tr><th class="proj-h">Projet</th><th class="owner-h">Owner</th><th class="st-h">Statut</th><th class="okr-h">OKR</th>';
-  M.forEach((m,i)=>{h+=`<th${i===NOW_M?' style="background:#fef2f2"':''}>` +m+'</th>'});
+  // Two-row header: months on top, weeks on bottom
+  const MG=[];let cm=null;
+  COLS.forEach((c,i)=>{if(c.g!==cm){MG.push({n:c.g,s:i,c:1});cm=c.g;}else{MG[MG.length-1].c++;}});
+  let h='<thead><tr>';
+  h+='<th class="proj-h" rowspan="2">Projet</th><th class="owner-h" rowspan="2">Owner</th><th class="st-h" rowspan="2">Statut</th><th class="okr-h" rowspan="2">OKR</th>';
+  const mBg=['#fafbfe','#fef2f2'];
+  MG.forEach((mg,mi)=>{h+='<th colspan="'+mg.c+'" style="border-bottom:1px solid #ddd;background:'+mBg[mi%2]+';font-size:11px;padding:6px 2px">'+mg.n+'</th>';});
+  h+='</tr><tr>';
+  COLS.forEach((c,i)=>{const cur=i===TC;h+='<th class="wk" style="'+(cur?'background:rgba(225,60,60,0.08);font-weight:600;color:#E24B4A':'')+'">'+c.l+'</th>';});
   h+='</tr></thead><tbody>';
   P.forEach((p,idx)=>{
     if(p.s){
       if(!sectionHasVisible(idx))return;
       let cnt=0;for(let i=idx+1;i<P.length;i++){if(P[i].s)break;if(shouldShow(P[i]))cnt++}
-      h+=`<tr class="section"><td colspan="16">${p.s}<span class="sec-count">${cnt} projet${cnt>1?'s':''}</span></td></tr>`;
+      h+='<tr class="section"><td colspan="'+(4+NC)+'">'+p.s+'<span class="sec-count">'+cnt+' projet'+(cnt>1?'s':'')+'</span></td></tr>';
       return;
     }
     if(!shouldShow(p))return;
     const pillCls=p.st==='done'?'pill-done':p.st==='wip'?'pill-wip':'pill-todo';
     const pillTxt=p.st==='done'?'Termine':p.st==='wip'?'En cours':'Planifie';
-    const tags=(p.okr?`<span class="tag tag-brief">${p.okr}</span>`:'')+(p.ai?'<span class="tag tag-ai">IA</span>':'');
-    const okrCell=p.okrt?`<span class="tag tag-okr">${p.okrt}</span>`:'';
-    h+=`<tr><td class="proj-cell"><span class="proj-name" title="${p.n}">${p.n}</span>${tags}`;
-    if(p.note)h+=`<div class="tooltip"><div class="tt-title">${p.n}</div><div class="tt-row"><span class="tt-label">Owner</span><span>${p.o}</span></div><div class="tt-row"><span class="tt-label">Statut</span><span>${pillTxt}</span></div><div class="tt-row"><span class="tt-label">Periode</span><span>${M[p.m[0]]} - ${M[p.m[1]]}</span></div>${p.okr?`<div class="tt-row"><span class="tt-label">OKR</span><span>${p.okr}</span></div>`:''}${p.okrt?`<div class="tt-row"><span class="tt-label">Objectif</span><span>${p.okrt}</span></div>`:''}<div style="margin-top:6px;padding-top:6px;border-top:1px solid #eee;color:#555">${p.note}</div></div>`;
-    h+=`</td><td class="owner-cell">${p.o}</td><td class="st-cell"><span class="pill ${pillCls}">${pillTxt}</span></td><td class="okr-cell">${okrCell}</td>`;
-    for(let mi=0;mi<12;mi++){
-      const isCur=mi===NOW_M;const bgStyle=isCur?'background:rgba(225,60,60,0.04);':'';
-      if(mi>=p.m[0]&&mi<=p.m[1]){
-        const isFirst=mi===p.m[0],isLast=mi===p.m[1];
+    const tags=(p.okr?'<span class="tag tag-brief">'+p.okr+'</span>':'')+(p.ai?'<span class="tag tag-ai">IA</span>':'');
+    const okrCell=p.okrt?'<span class="tag tag-okr">'+p.okrt+'</span>':'';
+    const bLink=p.burl?'cursor:pointer;text-decoration:underline dotted #aaa;text-underline-offset:3px':'';
+    const bClick=p.burl?' onclick="window.open(\''+p.burl+'\',\'_blank\')"':'';
+    h+='<tr><td class="proj-cell"><span class="proj-name" style="'+bLink+'"'+bClick+' title="'+(p.burl?p.n+' — Ouvrir le brief':p.n)+'">'+p.n+'</span>'+tags;
+    if(p.note){
+      const fmtD=d=>{const x=new Date(d);return String(x.getDate()).padStart(2,'0')+'/'+String(x.getMonth()+1).padStart(2,'0')+'/'+x.getFullYear();};
+      const period=p.ds||p.de?(p.ds?fmtD(p.ds):'?')+' — '+(p.de?fmtD(p.de):'en cours'):MNAMES[p.m[0]]+' - '+MNAMES[p.m[1]];
+      h+='<div class="tooltip"><div class="tt-title">'+p.n+'</div><div class="tt-row"><span class="tt-label">Periode</span><span>'+period+'</span></div>'+(p.dur?'<div class="tt-row"><span class="tt-label">Charge</span><span>'+p.dur+' j</span></div>':'')+'<div style="margin-top:6px;padding-top:6px;border-top:1px solid #eee;color:#555">'+p.note+'</div></div>';
+    }
+    h+='</td><td class="owner-cell">'+p.o+'</td><td class="st-cell"><span class="pill '+pillCls+'">'+pillTxt+'</span></td><td class="okr-cell">'+okrCell+'</td>';
+    const [cs,ce]=colRange(p);
+    for(let ci=0;ci<NC;ci++){
+      const isCur=ci===TC;const bgStyle=isCur?'background:rgba(225,60,60,0.04);':'';
+      const inRange=ci>=cs&&ci<=ce&&cs>=0;
+      let marker='';if(isCur){marker='<div class="today-marker" style="left:'+TP+'%"><div class="today-dot"></div></div>';}
+      if(inRange){
+        const isFirst=ci===cs,isLast=ci===ce;
         let barCls='bar-'+p.st;
         if(p.cat==='agent'&&p.st!=='done')barCls=p.st==='todo'?'bar-agent-todo':'bar-agent';
         const bl=isFirst?'border-top-left-radius:4px;border-bottom-left-radius:4px;':'border-radius:0;';
         const br=isLast?'border-top-right-radius:4px;border-bottom-right-radius:4px;':'';
         const left=isFirst?'8%':'0',right=isLast?'8%':'0';
-        let marker='';
-        if(isCur){const pct=Math.round((NOW_D/30)*100);marker=`<div class="today-marker" style="left:${pct}%"><div class="today-dot"></div></div>`}
-        h+=`<td style="${bgStyle}position:relative"><div class="bar ${barCls}" style="left:${left};right:${right};${bl}${br}"></div>${marker}</td>`;
+        h+='<td style="'+bgStyle+'position:relative"><div class="bar '+barCls+'" style="left:'+left+';right:'+right+';'+bl+br+'"></div>'+marker+'</td>';
       } else {
-        let marker='';
-        if(isCur){const pct=Math.round((NOW_D/30)*100);marker=`<div class="today-marker" style="left:${pct}%"><div class="today-dot"></div></div>`}
-        h+=`<td style="${bgStyle}position:relative">${marker}</td>`;
+        h+='<td style="'+bgStyle+'position:relative">'+marker+'</td>';
       }
     }
-    h+=`</tr>`;
+    h+='</tr>';
   });
   h+='</tbody>';t.innerHTML=h;
 }
 renderGantt();
 
+// Tooltip positioning (fixed, follows cursor)
+document.querySelectorAll('.proj-cell').forEach(cell=>{
+  const tt=cell.querySelector('.tooltip');
+  if(!tt)return;
+  cell.addEventListener('mouseenter',e=>{tt.style.display='block';tt.style.left=(e.clientX+16)+'px';tt.style.top=(e.clientY-10)+'px';});
+  cell.addEventListener('mousemove',e=>{tt.style.left=(e.clientX+16)+'px';tt.style.top=Math.max(10,e.clientY-10)+'px';});
+  cell.addEventListener('mouseleave',()=>{tt.style.display='none';});
+});
+
+
 const briefs=[
-  {n:1,t:'Creation champ Business Stage',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr'},
-  {n:2,t:'Scoring MEDDICC - Accounts',o:'Henri',st:'done',d:'22/04',note:'En production',p:'Avr'},
-  {n:3,t:'CS Portfolio Plan',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr'},
-  {n:4,t:'Sales Layout Lot 2/3 - Opportunities',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr'},
-  {n:5,t:'Brief Propriete Buyer Intents',o:'Henri',st:'done',d:'16/04',note:'Livre complet',p:'Avr'},
-  {n:6,t:'Brief Mailer Global Strategy',o:'Henri',st:'done',d:'16/04',note:'Champs livres',p:'Avr'},
-  {n:7,t:'Brief Verbal Call x Forecast',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr'},
-  {n:8,t:'Brief Healthscore Automatise',o:'Henri',st:'done',d:'30/04',note:'Finished',p:'Avr'},
-  {n:9,t:'Correction Booking Value',o:'Henri',st:'done',d:'Mai',note:'Finished (Monday 11/05)',p:'Avr'},
-  {n:10,t:'Brief Targeted Contact',o:'Henri',st:'done',d:'Mai',note:'Finished (Monday 11/05)',p:'Avr'},
-  {n:11,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'wip',d:'-',note:'En cours (Monday: Working on it)',p:'Mai'},
-  {n:12,t:'Product Feedback',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
-  {n:13,t:'Automatisation New Logo & Expansion Booking Values',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
-  {n:14,t:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'wip',d:'-',note:'En cours (Monday: Working on it)',p:'Mai'},
-  {n:15,t:'Approval Process',o:'Aissatou',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
-  {n:16,t:'New Stage New Contract & Upsell',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin'},
-  {n:17,t:'Scoring MEDDICC - Opportunities',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin'},
-  {n:18,t:'Customer Trial & Onboarding - Implementation',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin'},
-  {n:19,t:'SOD & Touch Level',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin'},
+  {n:1,t:'Creation champ Business Stage',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr',dur:2,burl:'https://docs.google.com/document/d/1ALuz0BV2Mw5sGbeQ0hKvUTFcyVTzSPx4urAq5_cXcQk/edit?tab=t.0'},
+  {n:2,t:'Scoring MEDDICC - Accounts',o:'Henri',st:'done',d:'22/04',note:'En production',p:'Avr',dur:4,burl:'https://docs.google.com/document/d/1cEZVom8eLcM-nhDzPdn7xEDtDkVrAsmtnKOltT8hHyI/edit?tab=t.0'},
+  {n:3,t:'CS Portfolio Plan',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr',dur:0.5,burl:'https://docs.google.com/document/d/1BicHrogEf1m-Fh2EUA6C7ioP_ShKQ4p7-4lvijARLm0/edit?tab=t.0'},
+  {n:4,t:'Sales Layout Lot 2/3 - Opportunities',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr',dur:2},
+  {n:5,t:'Brief Propriete Buyer Intents',o:'Henri',st:'done',d:'16/04',note:'Livre complet',p:'Avr',dur:0.5,burl:'https://docs.google.com/document/d/1hN1vAa0sqZ_ggEKD2we-sGSsnPk0e00RamcOGDlNBCg/edit?tab=t.0'},
+  {n:6,t:'Brief Mailer Global Strategy',o:'Henri',st:'done',d:'16/04',note:'Champs livres',p:'Avr',dur:0.5,burl:'https://docs.google.com/document/d/1AKZ7V_WsN4X5_S9StcZPadhYs1PIbMIAv8KMTL9mcJQ/edit?tab=t.0'},
+  {n:7,t:'Brief Verbal Call x Forecast',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr',dur:1,burl:'https://docs.google.com/document/d/1y4dyTsPABgcgkwN-YV9rId9UfiGzw8UC49O4WnEiR2g/edit?tab=t.0'},
+  {n:8,t:'Brief Healthscore Automatise',o:'Henri',st:'done',d:'30/04',note:'Finished',p:'Avr',dur:2.5,burl:'https://docs.google.com/document/d/1JiUuyRTKEETGqYveYIcRLTU1YeSfDmKemEpAr9uThHo/edit?tab=t.0'},
+  {n:9,t:'Correction Booking Value',o:'Henri',st:'done',d:'Mai',note:'Finished (Monday 11/05)',p:'Avr',dur:1,burl:'https://docs.google.com/document/d/1nelxL62QCapen-vr_X7xlYjBUgYRZDiFRKnM2FdmxQk/edit?usp=sharing'},
+  {n:10,t:'Brief Targeted Contact',o:'Henri',st:'done',d:'Mai',note:'Finished (Monday 11/05)',p:'Avr',dur:2,burl:'https://docs.google.com/document/d/1lIGkr01KRm7c5yvqoOFawgPNryjLTwHtxjsjHtJrV4U/edit?tab=t.0'},
+  {n:11,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'wip',d:'-',note:'En cours (Monday: Working on it)',p:'Mai',dur:1.5,burl:'https://docs.google.com/document/d/106mB8EWo9kBHlj8uU1z7U50oU2vTpL-Zup4OI96DocU/edit?tab=t.0'},
+  {n:12,t:'Product Feedback',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai',dur:3,burl:'https://docs.google.com/document/d/1idlKxFp3LcorN4PKgUFZymQhPrnK1kV1k9grOpxevoI/edit?usp=sharing'},
+  {n:13,t:'Automatisation New Logo & Expansion Booking Values',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai',dur:2.65,burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0'},
+  {n:14,t:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'wip',d:'-',note:'En cours (Monday: Working on it)',p:'Mai',dur:2.4,burl:'https://docs.google.com/document/d/1gmASqc9E9RoTPVlcTW7yWtyKRa7c34gtAOLkvamC0_w/edit?tab=t.0'},
+  {n:15,t:'Approval Process',o:'Aissatou',st:'todo',d:'-',note:'Brief Mai',p:'Mai',burl:'https://docs.google.com/document/d/1nyw1rd3Cqvit9TY4RV1DOw0217awODcJ_ECop_AqmAs/edit?tab=t.0'},
+  {n:16,t:'New Stage New Contract & Upsell',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin',dur:8,burl:'https://docs.google.com/document/d/17ittpHQbNHnh0jdWJV4q3ZXSO_2BgUEvHmXNlMMwY_Y/edit?tab=t.0'},
+  {n:17,t:'Scoring MEDDICC - Opportunities',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin',dur:9.5,burl:'https://docs.google.com/document/d/1kfLwg4-vURMqL72SnCCPrjvwVHk3EO7kyjw3d1ZM9qg/edit?tab=t.0'},
+  {n:18,t:'Customer Trial & Onboarding - Implementation',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin',burl:'https://docs.google.com/document/d/1vgnFAx-OK2bHtv7Bz8TQA7HUdFH-Yn7H4C0chZYOisE/edit?usp=sharing'},
+  {n:19,t:'SOD & Touch Level',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin',dur:1.5,burl:'https://docs.google.com/document/d/1qgJONYEaD3eSa8wBpL3NKXK1XjCvkuFDfH6YBqZTuyg/edit?tab=t.0'},
 ];
 const bt=document.getElementById('briefs-table');
 let bh='<table style="width:100%;border-collapse:collapse;background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden">';
 const ths='padding:10px 12px;font-size:11px;color:#888;font-weight:500';
-bh+=`<thead><tr style="background:#f0f4f8"><th style="${ths};text-align:left">#</th><th style="${ths};text-align:left">Brief</th><th style="${ths};text-align:center">Owner</th><th style="${ths};text-align:center">Mois</th><th style="${ths};text-align:center">Statut</th><th style="${ths};text-align:left">Notes</th></tr></thead><tbody>`;
+bh+=`<thead><tr style="background:#f0f4f8"><th style="${ths};text-align:left">#</th><th style="${ths};text-align:left">Brief</th><th style="${ths};text-align:center">Owner</th><th style="${ths};text-align:center">Mois</th><th style="${ths};text-align:center">Statut</th><th style="${ths};text-align:center">Charge</th><th style="${ths};text-align:left">Notes</th></tr></thead><tbody>`;
 let lastP='';
 briefs.forEach(b=>{
   const pc=b.st==='done'?'pill-done':b.st==='wip'?'pill-wip':'pill-todo';
   const pt=b.st==='done'?'Termine':b.st==='wip'?'En cours':'A faire';
   const rowBg=b.st==='done'?'background:#fafff8;':'';
-  if(b.p!==lastP){bh+=`<tr><td colspan="6" style="padding:8px 12px;font-weight:600;font-size:12px;color:#1F3864;background:#f0f4f8">${b.p} 2026</td></tr>`;lastP=b.p}
-  bh+=`<tr style="${rowBg}border-bottom:1px solid #f0f0f0"><td style="padding:8px 12px;font-weight:600;color:#1F3864;font-size:13px">${b.n}</td><td style="padding:8px 12px;font-size:12px">${b.t}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.o}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.p}</td><td style="padding:8px 12px;text-align:center"><span class="pill ${pc}">${pt}</span></td><td style="padding:8px 12px;font-size:11px;color:#666">${b.note}</td></tr>`;
+  if(b.p!==lastP){bh+=`<tr><td colspan="7" style="padding:8px 12px;font-weight:600;font-size:12px;color:#1F3864;background:#f0f4f8">${b.p} 2026</td></tr>`;lastP=b.p}
+  bh+=`<tr id="brief-${b.n}" style="${rowBg}border-bottom:1px solid #f0f0f0"><td style="padding:8px 12px;font-weight:600;color:#1F3864;font-size:13px">${b.n}</td><td style="padding:8px 12px;font-size:12px">${b.burl?'<a href="'+b.burl+'" target="_blank" style="color:inherit;text-decoration:underline dotted #aaa;text-underline-offset:3px" title="Ouvrir le brief">'+b.t+'</a>':b.t}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.o}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.p}</td><td style="padding:8px 12px;text-align:center"><span class="pill ${pc}">${pt}</span></td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#555;font-weight:500">${b.dur?b.dur+' j':'-'}</td><td style="padding:8px 12px;font-size:11px;color:#666">${b.note}</td></tr>`;
 });
 bh+='</tbody></table>';
 bt.innerHTML=bh;
