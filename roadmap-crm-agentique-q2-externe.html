@@ -105,12 +105,12 @@ tr:hover .tooltip{display:block}
 <body>
 <div class="header">
 <h1>Roadmap CRM & Agentique - Q2 2026</h1>
-<p>iAdvize - Equipe CRM & Data Ops | Aissatou Gassama & Henri de Cargouet | Mise a jour : 7 mai 2026</p>
+<p>iAdvize - Equipe CRM & Data Ops | Aissatou Gassama & Henri de Cargouet | Mise a jour : 11 mai 2026</p>
 </div>
 
 <div class="stats">
-<div class="stat stat-green"><div class="stat-label">Briefs livres</div><div class="stat-val">8<span style="font-size:14px;color:#888">/19</span></div><div class="stat-sub">42% complete</div></div>
-<div class="stat stat-blue"><div class="stat-label">Projets en cours</div><div class="stat-val">10</div><div class="stat-sub">CRM + Agentique + Infra</div></div>
+<div class="stat stat-green"><div class="stat-label">Briefs livres</div><div class="stat-val">10<span style="font-size:14px;color:#888">/19</span></div><div class="stat-sub">53% complete</div></div>
+<div class="stat stat-blue"><div class="stat-label">Projets en cours</div><div class="stat-val">9</div><div class="stat-sub">CRM + Agentique + Infra</div></div>
 <div class="stat stat-orange"><div class="stat-label">Planifies Q2</div><div class="stat-val">16</div><div class="stat-sub">Mai - Juin 2026</div></div>
 <div class="stat stat-purple"><div class="stat-label">Projets agentiques</div><div class="stat-val">7</div><div class="stat-sub">Dont 6 en cours</div></div>
 </div>
@@ -135,7 +135,7 @@ tr:hover .tooltip{display:block}
 <span><i style="background:#378ADD"></i>En cours</span>
 <span><i style="background:transparent;border:1.5px dashed #D85A30"></i>Planifie</span>
 <span><i style="background:#7F77DD"></i>Agentique</span>
-<span style="color:#E24B4A;font-weight:500">| 7 mai</span>
+<span style="color:#E24B4A;font-weight:500">| 11 mai</span>
 </div>
 <div class="gantt-wrap">
 <table class="gantt" id="gantt"></table>
@@ -146,18 +146,18 @@ tr:hover .tooltip{display:block}
 <div class="progress-wrap" style="border:none;padding:0;background:transparent">
 <div class="progress-title">Avancement OKR CRM : 19 briefs</div>
 <div class="progress-bar-bg" style="height:24px">
-<div class="progress-seg" style="width:42%;background:#1D9E75"></div>
+<div class="progress-seg" style="width:52.6%;background:#1D9E75"></div>
 <div class="progress-seg" style="width:10.5%;background:#378ADD"></div>
-<div class="progress-seg" style="width:47.5%;background:#FEF3C7"></div>
+<div class="progress-seg" style="width:36.8%;background:#FEF3C7"></div>
 </div>
-<div class="progress-labels"><span>8 termines</span><span>2 en cours</span><span>9 a faire</span><span style="font-weight:600;color:#D85A30">42% complete - seuil 75% = 14/19</span></div>
+<div class="progress-labels"><span>10 termines</span><span>2 en cours</span><span>7 a faire</span><span style="font-weight:600;color:#D85A30">53% complete - seuil 75% = 14/19</span></div>
 </div>
 <div style="margin-top:20px" id="briefs-table"></div>
 </div>
 
 <script>
 const M=['Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aou','Sep','Oct','Nov','Dec'];
-const NOW_M=4,NOW_D=7;
+const NOW_M=4,NOW_D=11;
 
 document.querySelectorAll('.tab').forEach(tab=>{
   tab.addEventListener('click',function(){
@@ -183,12 +183,12 @@ const P=[
 {n:'Unified Account & Contact Targeting',o:'Henri',st:'done',m:[0,2],cat:'crm',note:'Termine Q1'},
 {n:'Global Process Mapping',o:'Aissatou',st:'done',m:[0,0],cat:'crm',note:'Termine Jan'},
 {s:'CRM - En cours (Mai)',id:'sec-wip'},
-{n:'Correction Booking Value',o:'Henri',st:'wip',m:[4,4],cat:'crm',okr:'Brief 9',okrt:'CRM',note:'UAT validee par Audrey'},
-{n:'Targeted Contact',o:'Henri',st:'wip',m:[4,4],cat:'crm',okr:'Brief 10',okrt:'CRM',note:'Attente retour Alexandre Dixneuf'},
-{n:'Verbal Call - Lightning Page',o:'Henri',st:'wip',m:[4,4],cat:'crm',okr:'Brief 11',okrt:'CRM',note:'Quasi termine'},
-{n:'Churn & Retention Forecast',o:'Henri',st:'wip',m:[4,5],cat:'crm',note:'Nouveau brief Mai'},
+{n:'Correction Booking Value',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 9',okrt:'CRM',note:'Finished (Monday 11/05)'},
+{n:'Targeted Contact',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 10',okrt:'CRM',note:'Finished (Monday 11/05)'},
+{n:'Verbal Call - Lightning Page',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 11',okrt:'CRM',note:'Livre le 30/04 (Monday: Finished)'},
+{n:'Churn & Retention Forecast',o:'Henri',st:'wip',m:[4,5],cat:'crm',note:'En cours (Monday: Working on it)'},
 {n:'Approval Process',o:'Aissatou',st:'todo',m:[4,5],cat:'crm',okr:'Brief 12',okrt:'CRM',note:'Priorise pour Mai'},
-{n:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'todo',m:[4,5],cat:'crm',note:'Brief a commencer'},
+{n:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'wip',m:[4,5],cat:'crm',note:'En cours (Monday: Working on it)'},
 {n:'Refresh PREPROD & Sandboxes',o:'Henri',st:'todo',m:[4,5],cat:'infra',note:'Apres Booking Value'},
 {s:'CRM - Planifie (Juin)',id:'sec-jun'},
 {n:'Tomorro-SFDC: flow Generate Project',o:'Henri',st:'todo',m:[5,5],cat:'crm',note:'Rapprochement ID Tomorro/SFDC'},
@@ -306,12 +306,12 @@ const briefs=[
   {n:6,t:'Brief Mailer Global Strategy',o:'Henri',st:'done',d:'16/04',note:'Champs livres',p:'Avr'},
   {n:7,t:'Brief Verbal Call x Forecast',o:'Henri',st:'done',d:'Avril',note:'Finished',p:'Avr'},
   {n:8,t:'Brief Healthscore Automatise',o:'Henri',st:'done',d:'30/04',note:'Finished',p:'Avr'},
-  {n:9,t:'Correction Booking Value',o:'Henri',st:'wip',d:'-',note:'UAT validee par Audrey',p:'Avr'},
-  {n:10,t:'Brief Targeted Contact',o:'Henri',st:'wip',d:'-',note:'Attente retour Alexandre',p:'Avr'},
-  {n:11,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
+  {n:9,t:'Correction Booking Value',o:'Henri',st:'done',d:'Mai',note:'Finished (Monday 11/05)',p:'Avr'},
+  {n:10,t:'Brief Targeted Contact',o:'Henri',st:'done',d:'Mai',note:'Finished (Monday 11/05)',p:'Avr'},
+  {n:11,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'wip',d:'-',note:'En cours (Monday: Working on it)',p:'Mai'},
   {n:12,t:'Product Feedback',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
   {n:13,t:'Automatisation New Logo & Expansion Booking Values',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
-  {n:14,t:'AVG Monthly Visit Aggregate',o:'TBD',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
+  {n:14,t:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'wip',d:'-',note:'En cours (Monday: Working on it)',p:'Mai'},
   {n:15,t:'Approval Process',o:'Aissatou',st:'todo',d:'-',note:'Brief Mai',p:'Mai'},
   {n:16,t:'New Stage New Contract & Upsell',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin'},
   {n:17,t:'Scoring MEDDICC - Opportunities',o:'TBD',st:'todo',d:'-',note:'Brief Juin',p:'Juin'},
