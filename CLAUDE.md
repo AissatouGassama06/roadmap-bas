@@ -68,29 +68,33 @@ Les 2 fichiers doivent contenir **exactement les mêmes données** (tableaux `P`
 ### Cohérence à vérifier (erreur déjà rencontrée)
 La carte « Projets en cours » et la carte « Projets agentiques – dont N en cours » doivent être cohérentes avec le nombre réel d'items `wip` dans `P`. Recompter à chaque fois plutôt que d'incrémenter de tête.
 
-## Publication GitHub Pages
+## Publication GitHub Pages — via le connecteur GitHub (méthode par défaut)
 
-Après modif des 2 fichiers, publier :
+La publication se fait **par le connecteur GitHub (MCP), PAS par `git push` en local**.
 
+Pourquoi : le bac à sable de Claude n'a pas d'accès réseau à github.com (ni HTTPS ni SSH), et il ne peut pas supprimer les fichiers verrou `.git/*.lock` du dossier monté (`Operation not permitted`). Résultat avec git local : le commit/push échoue et laisse un verrou qui bloque le run suivant. Le connecteur, lui, écrit via l'API GitHub avec sa propre connexion authentifiée — ni réseau sandbox ni git local requis, donc aucun verrou possible.
+
+- **Dépôt** : `AissatouGassama06/roadmap-bas`, branche `main`.
+- **Pré-requis** : le connecteur GitHub doit être branché et avoir les droits d'écriture (push) sur ce dépôt.
+
+Procédure :
+
+1. Modifier les 2 HTML en local (Read/Write/Edit — fonctionne normalement sur le dossier monté).
+2. Publier chaque fichier modifié via le connecteur GitHub :
+   - récupérer le `sha` actuel du fichier sur `main` (outil de lecture de fichier du connecteur) ;
+   - puis `create_or_update_file` avec le **contenu complet** du fichier local, le `sha`, branche `main`, message `MAJ roadmap <date>` ;
+   - ou `push_files` pour committer les 2 fichiers en un seul commit.
+3. GitHub Pages se régénère tout seul (1–2 min).
+4. Toujours pousser le **contenu intégral** du fichier généré localement (pas une reconstruction de mémoire), pour ne pas corrompre le HTML publié.
+
+### Fallback si le connecteur GitHub est indisponible
+Enregistrer les modifs dans les fichiers et prévenir Aïssatou qu'un push manuel est nécessaire depuis son Mac :
 ```bash
 cd "/Users/aissatougassama2/Roadmaps-Projets/roadmap-bas"
-git add -A
-git commit -m "MAJ roadmap $(date +%Y-%m-%d)"
-git push
-```
-
-Le remote `origin` contient déjà un token d'accès (PAT) dans son URL — ne jamais l'afficher ni le logger. Le dépôt est `AissatouGassama06/roadmap-bas`, branche `main`.
-
-### Piège — verrou Git
-Si un run précédent a planté, il peut rester des fichiers de verrou qui bloquent tout commit :
-```
-fatal: Unable to create '.git/index.lock': File exists.
-```
-Les supprimer puis recommencer :
-```bash
 rm -f .git/HEAD.lock .git/index.lock
+git add -A && git commit -m "MAJ roadmap $(date +%Y-%m-%d)" && git push
 ```
-⚠ Depuis un environnement sandbox Claude, la suppression peut échouer (`Operation not permitted`) et le réseau vers github.com peut être bloqué. Dans ce cas : enregistrer les modifs dans les fichiers, et prévenir Aïssatou qu'un `git push` manuel est nécessaire (commandes ci-dessus). Ne pas tenter de réécrire les fichiers via l'API GitHub (risque de corrompre le HTML publié).
+⚠ Ne pas tenter de faire le `git push` depuis le bac à sable (réseau bloqué + verrou non supprimable). Le remote contient un token/clé d'accès — ne jamais l'afficher ni le logger.
 
 ## Google Drive (copie « source »)
 La tâche d'origine prévoyait de sauvegarder aussi les 2 HTML dans `My Drive/Work OS/`. En pratique ces fichiers HTML ne sont pas accessibles à Claude (chemin CloudStorage non monté, connecteur Drive ne les indexe pas). La version qui fait foi est donc **celle du dépôt Git / GitHub Pages**. Si une copie Drive doit rester synchro, Aïssatou la met à jour manuellement. Signaler ce point, ne pas inventer un succès de sauvegarde Drive.
