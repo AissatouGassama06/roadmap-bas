@@ -343,7 +343,7 @@ function renderGantt(){
   const MG=[];let cm=null;
   COLS.forEach((c,i)=>{if(c.g!==cm){MG.push({n:c.g,s:i,c:1});cm=c.g;}else{MG[MG.length-1].c++;}});
   let h='<thead><tr>';
-  h+='<th class="proj-h" rowspan="2">Projet</th><th class="owner-h" rowspan="2">Owner</th><th class="st-h" rowspan="2">Statut</th><th class="okr-h" rowspan="2">OKR</th>';
+  h+='<th class="proj-h" rowspan="2">Projet</th><th class="owner-h" rowspan="2">Owner</th><th class="st-h" rowspan="2">Statut</th>';
   const mBg=['#fafbfe','#fef2f2'];
   MG.forEach((mg,mi)=>{h+='<th colspan="'+mg.c+'" style="border-bottom:1px solid #ddd;background:'+mBg[mi%2]+';font-size:11px;padding:6px 2px">'+mg.n+'</th>';});
   h+='</tr><tr>';
@@ -353,7 +353,7 @@ function renderGantt(){
     if(p.s){
       if(!sectionHasVisible(idx))return;
       let cnt=0;for(let i=idx+1;i<P.length;i++){if(P[i].s)break;if(shouldShow(P[i]))cnt++}
-      h+='<tr class="section"><td colspan="'+(4+NC)+'">'+p.s+'<span class="sec-count">'+cnt+' projet'+(cnt>1?'s':'')+'</span></td></tr>';
+      h+='<tr class="section"><td colspan="'+(3+NC)+'">'+p.s+'<span class="sec-count">'+cnt+' projet'+(cnt>1?'s':'')+'</span></td></tr>';
       return;
     }
     if(!shouldShow(p))return;
@@ -369,7 +369,7 @@ function renderGantt(){
       const period=p.ds||p.de?(p.ds?fmtD(p.ds):'?')+' — '+(p.de?fmtD(p.de):'en cours'):MNAMES[p.m[0]]+' - '+MNAMES[p.m[1]];
       h+='<div class="tooltip"><div class="tt-title">'+p.n+'</div><div class="tt-row"><span class="tt-label">Periode</span><span>'+period+'</span></div>'+(p.dur?'<div class="tt-row"><span class="tt-label">Charge</span><span>'+p.dur+' j</span></div>':'')+'<div style="margin-top:6px;padding-top:6px;border-top:1px solid #eee;color:#555">'+p.note+'</div></div>';
     }
-    h+='</td><td class="owner-cell">'+p.o+'</td><td class="st-cell"><span class="pill '+pillCls+'">'+pillTxt+'</span></td><td class="okr-cell">'+okrCell+'</td>';
+    h+='</td><td class="owner-cell">'+p.o+'</td><td class="st-cell"><span class="pill '+pillCls+'">'+pillTxt+'</span></td>';
     const [cs,ce]=colRange(p);
     for(let ci=0;ci<NC;ci++){
       const isCur=ci===TC;const bgStyle=isCur?'background:rgba(225,60,60,0.04);':'';
