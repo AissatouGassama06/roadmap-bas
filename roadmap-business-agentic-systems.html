@@ -110,13 +110,13 @@ table.gantt{width:100%;border-collapse:collapse;min-width:2400px}
 </div>
 
 <div class="tabs">
-<div class="tab active" data-tab="okrs">OKRs Q2</div>
+<div class="tab active" data-tab="roadmap">Roadmap</div>
+<div class="tab" data-tab="okrs">OKRs Q2</div>
 <div class="tab" data-tab="okrs-q3">OKRs Q3</div>
-<div class="tab" data-tab="roadmap">Roadmap</div>
 <div class="tab" data-tab="briefs">Suivi briefs</div>
 </div>
 
-<div class="tab-content active" id="tab-okrs">
+<div class="tab-content" id="tab-okrs">
 
 <div class="stats">
 <div class="stat stat-green"><div class="stat-label">Briefs livres</div><div class="stat-val">15<span style="font-size:14px;color:#888">/19</span></div><div class="stat-sub">79% — seuil 75% atteint !</div></div>
@@ -347,7 +347,7 @@ Capacite Q3 : 65 j ouvres (feries 14/07 & 15/08 deduits). Henri ~47 j build (-6 
 
 </div>
 
-<div class="tab-content" id="tab-roadmap">
+<div class="tab-content active" id="tab-roadmap">
 <div class="controls">
 <button class="active" data-f="all">Tout</button>
 <button data-f="crm">CRM</button>
@@ -639,36 +639,41 @@ document.querySelectorAll('.proj-cell').forEach(cell=>{
 
 
 const briefs=[
-  {n:1,t:'Classification "environnement" sur les Product Projects SFDC',o:'Henri',st:'todo',p:'Juil',dur:2,note:'Projet (A1)'},
-  {n:2,t:"Brief New Stage 'New Contract' & 'Upsell'",o:'Henri',st:'todo',p:'Juil',dur:5,note:'Projet (A1)',burl:'https://docs.google.com/document/d/17ittpHQbNHnh0jdWJV4q3ZXSO_2BgUEvHmXNlMMwY_Y/edit?tab=t.0'},
-  {n:3,t:'Champ "Targeted Prospect" (base du Targeted Contact)',o:'-',st:'todo',p:'Juil',dur:3.1,note:'Projet (A1)'},
-  {n:4,t:'[BONUS] Brief Sub Industries (Targeting)',o:'-',st:'todo',p:'Juil',dur:4.7,note:'Projet (A1) - bonus'},
-  {n:5,t:'Menage ete - Scheduled Flows',o:'-',st:'todo',p:'Juil',dur:3,note:'Menage ete - dette technique (A2)'},
-  {n:6,t:'Menage ete - Packages',o:'-',st:'todo',p:'Juil',dur:3,note:'Menage ete - dette technique (A2)'},
-  {n:7,t:'Creer des champs pour suivre les dates de changement de stage',o:'-',st:'todo',p:'Aout',dur:2.15,note:'Projet (A1)'},
-  {n:8,t:'Demenagement Monday - boards CS (automatisations simples)',o:'-',st:'todo',p:'Aout',dur:1,note:'Projet (A1)'},
-  {n:9,t:'Demenagement Monday - boards CS (automatisations complexes)',o:'-',st:'todo',p:'Aout',dur:2,note:'Projet (A1)'},
-  {n:10,t:'New Pricing Model',o:'-',st:'todo',p:'Aout',note:'Projet (A1) - ajoute en Aout'},
-  {n:11,t:'Menage ete - Decommissionnement Salesloft',o:'-',st:'todo',p:'Aout',dur:9,note:'Menage ete - dette technique (A2)'},
-  {n:12,t:'Update Success Plan field on Account',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
-  {n:13,t:'Aligner la Sales Confidence Renew ISO sur le Healthscore',o:'-',st:'todo',p:'Sept',dur:1,note:'Projet (A1)'},
-  {n:14,t:'PRODUCT USERS - Retrait des skills du code Apex',o:'Aissatou Gassama',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
-  {n:15,t:'Menage ete - Decommissionnement Product Consumption',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Menage ete - dette technique (A2)'},
-  {n:16,t:'Creation champ Business Stage',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Livre Avril',burl:'https://docs.google.com/document/d/1ALuz0BV2Mw5sGbeQ0hKvUTFcyVTzSPx4urAq5_cXcQk/edit?tab=t.0'},
-  {n:17,t:'Scoring MEDDICC - Accounts',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:4,note:'En production 22/04',burl:'https://docs.google.com/document/d/1cEZVom8eLcM-nhDzPdn7xEDtDkVrAsmtnKOltT8hHyI/edit?tab=t.0'},
-  {n:18,t:'CS Portfolio Plan',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre Avril',burl:'https://docs.google.com/document/d/1BicHrogEf1m-Fh2EUA6C7ioP_ShKQ4p7-4lvijARLm0/edit?tab=t.0'},
-  {n:19,t:'Sales Layout Lot 2/3 - Opportunities',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Livre Avril'},
-  {n:20,t:'Brief Propriete Buyer Intents',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre 16/04',burl:'https://docs.google.com/document/d/1hN1vAa0sqZ_ggEKD2we-sGSsnPk0e00RamcOGDlNBCg/edit?tab=t.0'},
-  {n:21,t:'Brief Mailer Global Strategy',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre 16/04',burl:'https://docs.google.com/document/d/1AKZ7V_WsN4X5_S9StcZPadhYs1PIbMIAv8KMTL9mcJQ/edit?tab=t.0'},
-  {n:22,t:'Brief Verbal Call x Forecast',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1,note:'Livre 30/04',burl:'https://docs.google.com/document/d/1y4dyTsPABgcgkwN-YV9rId9UfiGzw8UC49O4WnEiR2g/edit?tab=t.0'},
-  {n:23,t:'Brief Healthscore Automatise',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2.5,note:'Livre 30/04',burl:'https://docs.google.com/document/d/1JiUuyRTKEETGqYveYIcRLTU1YeSfDmKemEpAr9uThHo/edit?tab=t.0'},
-  {n:24,t:'Correction Booking Value',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1,note:'Finished 11/05',burl:'https://docs.google.com/document/d/1nelxL62QCapen-vr_X7xlYjBUgYRZDiFRKnM2FdmxQk/edit?usp=sharing'},
-  {n:25,t:'Brief Targeted Contact',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Finished 11/05',burl:'https://docs.google.com/document/d/1lIGkr01KRm7c5yvqoOFawgPNryjLTwHtxjsjHtJrV4U/edit?tab=t.0'},
-  {n:26,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1.5,note:'Finished 22/05',burl:'https://docs.google.com/document/d/106mB8EWo9kBHlj8uU1z7U50oU2vTpL-Zup4OI96DocU/edit?tab=t.0'},
-  {n:27,t:'Product Feedback',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:3,note:'Finished 03/06',burl:'https://docs.google.com/document/d/1idlKxFp3LcorN4PKgUFZymQhPrnK1kV1k9grOpxevoI/edit?usp=sharing'},
-  {n:28,t:'Automatisation New Logo & Expansion Booking Values',o:'Henri',st:'wip',p:'Q2 (livres)',q2:true,dur:2.65,note:'En PROD depuis 28/05',burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0'},
-  {n:29,t:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'done',p:'Q2 (livres)',q2:true,dur:2.4,note:'Finished 25/05',burl:'https://docs.google.com/document/d/1gmASqc9E9RoTPVlcTW7yWtyKRa7c34gtAOLkvamC0_w/edit?tab=t.0'},
-  {n:30,t:'Approval Process',o:'Aissatou',st:'done',p:'Q2 (livres)',q2:true,note:'Finished 08/06',burl:'https://docs.google.com/document/d/1nyw1rd3Cqvit9TY4RV1DOw0217awODcJ_ECop_AqmAs/edit?tab=t.0'},
+  {n:1,t:'Approval Process',o:'Aissatou',st:'done',p:'Juin',dur:1,note:'Finished 08/06',burl:'https://docs.google.com/document/d/1nyw1rd3Cqvit9TY4RV1DOw0217awODcJ_ECop_AqmAs/edit?tab=t.0'},
+  {n:2,t:'Product Feedback',o:'Henri',st:'done',p:'Juin',dur:3,note:'Finished 03/06',burl:'https://docs.google.com/document/d/1idlKxFp3LcorN4PKgUFZymQhPrnK1kV1k9grOpxevoI/edit?usp=sharing'},
+  {n:3,t:'Customer Trial & Onboarding - Reunion de Design',o:'Henri',st:'done',p:'Juin',dur:0.5,note:'Finished 12/06',burl:'https://docs.google.com/document/d/1vgnFAx-OK2bHtv7Bz8TQA7HUdFH-Yn7H4C0chZYOisE/edit?usp=sharing'},
+  {n:4,t:'Customer Trial & Onboarding - Implementation',o:'Henri',st:'todo',p:'Juin',dur:4.5,note:'Cadrage fait, implementation a venir',burl:'https://docs.google.com/document/d/1vgnFAx-OK2bHtv7Bz8TQA7HUdFH-Yn7H4C0chZYOisE/edit?usp=sharing'},
+  {n:5,t:'SOD & Touch Level - V2',o:'Aissatou',st:'done',p:'Juin',dur:1.5,note:'Finished 22/06',burl:'https://docs.google.com/document/d/1qgJONYEaD3eSa8wBpL3NKXK1XjCvkuFDfH6YBqZTuyg/edit?tab=t.0'},
+  {n:6,t:'Brief Scoring MEDDICC - Opportunities',o:'Henri',st:'wip',p:'Juin',dur:6.35,note:'Ready to deploy',burl:'https://docs.google.com/document/d/1kfLwg4-vURMqL72SnCCPrjvwVHk3EO7kyjw3d1ZM9qg/edit?tab=t.0'},
+  {n:7,t:'BONUS - Brief Sub Industries - Actions',o:'Henri',st:'todo',p:'Juin',note:'Bonus'},
+  {n:8,t:'Classification "environnement" sur les Product Projects SFDC',o:'Henri',st:'todo',p:'Juil',dur:2,note:'Projet (A1)'},
+  {n:9,t:"Brief New Stage 'New Contract' & 'Upsell'",o:'Henri',st:'todo',p:'Juil',dur:5,note:'Projet (A1)',burl:'https://docs.google.com/document/d/17ittpHQbNHnh0jdWJV4q3ZXSO_2BgUEvHmXNlMMwY_Y/edit?tab=t.0'},
+  {n:10,t:'Champ "Targeted Prospect" (base du Targeted Contact)',o:'-',st:'todo',p:'Juil',dur:3.1,note:'Projet (A1)'},
+  {n:11,t:'[BONUS] Brief Sub Industries (Targeting)',o:'-',st:'todo',p:'Juil',dur:4.7,note:'Projet (A1) - bonus'},
+  {n:12,t:'Menage ete - Scheduled Flows',o:'-',st:'todo',p:'Juil',dur:3,note:'Menage ete - dette technique (A2)'},
+  {n:13,t:'Menage ete - Packages',o:'-',st:'todo',p:'Juil',dur:3,note:'Menage ete - dette technique (A2)'},
+  {n:14,t:'Creer des champs pour suivre les dates de changement de stage',o:'-',st:'todo',p:'Aout',dur:2.15,note:'Projet (A1)'},
+  {n:15,t:'Demenagement Monday - boards CS (automatisations simples)',o:'-',st:'todo',p:'Aout',dur:1,note:'Projet (A1)'},
+  {n:16,t:'Demenagement Monday - boards CS (automatisations complexes)',o:'-',st:'todo',p:'Aout',dur:2,note:'Projet (A1)'},
+  {n:17,t:'New Pricing Model',o:'-',st:'todo',p:'Aout',note:'Projet (A1) - ajoute en Aout'},
+  {n:18,t:'Menage ete - Decommissionnement Salesloft',o:'-',st:'todo',p:'Aout',dur:9,note:'Menage ete - dette technique (A2)'},
+  {n:19,t:'Update Success Plan field on Account',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
+  {n:20,t:'Aligner la Sales Confidence Renew ISO sur le Healthscore',o:'-',st:'todo',p:'Sept',dur:1,note:'Projet (A1)'},
+  {n:21,t:'PRODUCT USERS - Retrait des skills du code Apex',o:'Aissatou Gassama',st:'todo',p:'Sept',dur:0.5,note:'Projet (A2)'},
+  {n:22,t:'Menage ete - Decommissionnement Product Consumption',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Menage ete - dette technique (A2)'},
+  {n:23,t:'Creation champ Business Stage',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Livre Avril',burl:'https://docs.google.com/document/d/1ALuz0BV2Mw5sGbeQ0hKvUTFcyVTzSPx4urAq5_cXcQk/edit?tab=t.0'},
+  {n:24,t:'Scoring MEDDICC - Accounts',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:4,note:'En production 22/04',burl:'https://docs.google.com/document/d/1cEZVom8eLcM-nhDzPdn7xEDtDkVrAsmtnKOltT8hHyI/edit?tab=t.0'},
+  {n:25,t:'CS Portfolio Plan',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre Avril',burl:'https://docs.google.com/document/d/1BicHrogEf1m-Fh2EUA6C7ioP_ShKQ4p7-4lvijARLm0/edit?tab=t.0'},
+  {n:26,t:'Sales Layout Lot 2/3 - Opportunities',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Livre Avril'},
+  {n:27,t:'Brief Propriete Buyer Intents',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre 16/04',burl:'https://docs.google.com/document/d/1hN1vAa0sqZ_ggEKD2we-sGSsnPk0e00RamcOGDlNBCg/edit?tab=t.0'},
+  {n:28,t:'Brief Mailer Global Strategy',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre 16/04',burl:'https://docs.google.com/document/d/1AKZ7V_WsN4X5_S9StcZPadhYs1PIbMIAv8KMTL9mcJQ/edit?tab=t.0'},
+  {n:29,t:'Brief Verbal Call x Forecast',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1,note:'Livre 30/04',burl:'https://docs.google.com/document/d/1y4dyTsPABgcgkwN-YV9rId9UfiGzw8UC49O4WnEiR2g/edit?tab=t.0'},
+  {n:30,t:'Brief Healthscore Automatise',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2.5,note:'Livre 30/04',burl:'https://docs.google.com/document/d/1JiUuyRTKEETGqYveYIcRLTU1YeSfDmKemEpAr9uThHo/edit?tab=t.0'},
+  {n:31,t:'Correction Booking Value',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1,note:'Finished 11/05',burl:'https://docs.google.com/document/d/1nelxL62QCapen-vr_X7xlYjBUgYRZDiFRKnM2FdmxQk/edit?usp=sharing'},
+  {n:32,t:'Brief Targeted Contact',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Finished 11/05',burl:'https://docs.google.com/document/d/1lIGkr01KRm7c5yvqoOFawgPNryjLTwHtxjsjHtJrV4U/edit?tab=t.0'},
+  {n:33,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1.5,note:'Finished 22/05',burl:'https://docs.google.com/document/d/106mB8EWo9kBHlj8uU1z7U50oU2vTpL-Zup4OI96DocU/edit?tab=t.0'},
+  {n:34,t:'Automatisation New Logo & Expansion Booking Values',o:'Henri',st:'wip',p:'Q2 (livres)',q2:true,dur:2.65,note:'En PROD depuis 28/05',burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0'},
+  {n:35,t:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'done',p:'Q2 (livres)',q2:true,dur:2.4,note:'Finished 25/05',burl:'https://docs.google.com/document/d/1gmASqc9E9RoTPVlcTW7yWtyKRa7c34gtAOLkvamC0_w/edit?tab=t.0'},
 ];
 const bt=document.getElementById('briefs-table');
 let showQ2=false;
