@@ -106,7 +106,7 @@ table.gantt{width:100%;border-collapse:collapse;min-width:2400px}
 <body>
 <div class="header">
 <h1>Roadmap Business & Agentic Systems - Q2-Q3 2026</h1>
-<p>iAdvize - Equipe CRM & Data Ops | Aissatou Gassama & Henri de Cargouet | Mise a jour : 15 juin 2026</p>
+<p>iAdvize - Equipe CRM & Data Ops | Aissatou Gassama & Henri de Cargouet | Mise a jour : 22 juin 2026</p>
 </div>
 
 <div class="tabs">
@@ -119,10 +119,10 @@ table.gantt{width:100%;border-collapse:collapse;min-width:2400px}
 <div class="tab-content active" id="tab-okrs">
 
 <div class="stats">
-<div class="stat stat-green"><div class="stat-label">Briefs livres</div><div class="stat-val">14<span style="font-size:14px;color:#888">/19</span></div><div class="stat-sub">Seuil 75% atteint !</div></div>
-<div class="stat stat-blue"><div class="stat-label">Projets en cours</div><div class="stat-val">6</div><div class="stat-sub">CRM + Agentique + Infra</div></div>
+<div class="stat stat-green"><div class="stat-label">Briefs livres</div><div class="stat-val">15<span style="font-size:14px;color:#888">/19</span></div><div class="stat-sub">79% — seuil 75% atteint !</div></div>
+<div class="stat stat-blue"><div class="stat-label">Projets en cours</div><div class="stat-val">5</div><div class="stat-sub">CRM + Agentique + Infra</div></div>
 <div class="stat stat-orange"><div class="stat-label">Planifies Q2</div><div class="stat-val">16</div><div class="stat-sub">Mai - Juin 2026</div></div>
-<div class="stat stat-purple"><div class="stat-label">Projets agentiques</div><div class="stat-val">12</div><div class="stat-sub">Dont 2 en cours</div></div>
+<div class="stat stat-purple"><div class="stat-label">Projets agentiques</div><div class="stat-val">34</div><div class="stat-sub">Roadmap Theo detaillee + A3</div></div>
 </div>
 
 <h2 style="font-size:14px;font-weight:600;color:#1F3864;margin-bottom:12px">Objectifs d'equipe (partages)</h2>
@@ -158,12 +158,12 @@ table.gantt{width:100%;border-collapse:collapse;min-width:2400px}
 <div class="okr-level"><span class="okr-pct okr-pct-125">125%</span><span>19/19 briefs deployes + 0 tickets en attente</span></div>
 </div>
 <div class="okr-progress">
-<div class="okr-progress-label"><span>Briefs</span><span style="font-weight:600;color:#1D9E75">14/19 (74%) — seuil 75% atteint !</span></div>
-<div class="okr-bar-bg"><div class="okr-bar-fill" style="width:74%;background:#1D9E75"></div></div>
+<div class="okr-progress-label"><span>Briefs</span><span style="font-weight:600;color:#1D9E75">15/19 (79%) — seuil 75% atteint !</span></div>
+<div class="okr-bar-bg"><div class="okr-bar-fill" style="width:79%;background:#1D9E75"></div></div>
 </div>
 <div class="linked-projects"><details><summary>Projets lies (19 briefs)</summary><div class="linked-proj-list">
-<div class="linked-proj-item"><span class="linked-proj-dot" style="background:#1D9E75"></span>14 termines : Business Stage, MEDDICC Accounts, CS Portfolio, Layout Lot 2/3, Buyer Intents, Mailer Strategy, Verbal Call, Healthscore, Booking Value, Targeted Contact, Churn Forecast, AVG Monthly Visit, Product Feedback, Approval Process</div>
-<div class="linked-proj-item"><span class="linked-proj-dot" style="background:#378ADD"></span>3 en cours : Auto Booking Values, SOD & Touch Level, MEDDICC Opps</div>
+<div class="linked-proj-item"><span class="linked-proj-dot" style="background:#1D9E75"></span>15 termines : Business Stage, MEDDICC Accounts, CS Portfolio, Layout Lot 2/3, Buyer Intents, Mailer Strategy, Verbal Call, Healthscore, Booking Value, Targeted Contact, Churn Forecast, AVG Monthly Visit, Product Feedback, Approval Process, SOD & Touch Level</div>
+<div class="linked-proj-item"><span class="linked-proj-dot" style="background:#378ADD"></span>2 en cours : Auto Booking Values, MEDDICC Opps</div>
 <div class="linked-proj-item"><span class="linked-proj-dot" style="background:#D85A30"></span>2 a faire (Juin) : New Stage, Trial Onboarding</div>
 </div></details></div>
 </div>
@@ -356,13 +356,14 @@ Capacite Q3 : 65 j ouvres (feries 14/07 & 15/08 deduits). Henri ~47 j build (-6 
 <button data-f="done">Termines</button>
 <button data-f="wip">En cours</button>
 <button data-f="todo">Planifies</button>
+<button id="toggleOld" style="margin-left:auto">+ Termines avant juin</button>
 </div>
 <div class="legend">
 <span><i style="background:#1D9E75"></i>Termine</span>
 <span><i style="background:#378ADD"></i>En cours</span>
 <span><i style="background:transparent;border:1.5px dashed #D85A30"></i>Planifie</span>
 <span><i style="background:#7F77DD"></i>Agentique</span>
-<span style="color:#E24B4A;font-weight:500">| 15 juin</span>
+<span style="color:#E24B4A;font-weight:500">| 22 juin</span>
 </div>
 <div class="gantt-wrap">
 <table class="gantt" id="gantt"></table>
@@ -377,7 +378,7 @@ Capacite Q3 : 65 j ouvres (feries 14/07 & 15/08 deduits). Henri ~47 j build (-6 
 <div class="progress-seg" style="width:0%;background:#378ADD"></div>
 <div class="progress-seg" style="width:100%;background:#FEF3C7"></div>
 </div>
-<div class="progress-labels"><span>0 termine</span><span>0 en cours</span><span>14 a faire</span><span style="font-weight:600;color:#854F0B">Q3 - demarrage juillet 2026</span></div>
+<div class="progress-labels"><span>0 termine</span><span>0 en cours</span><span>15 a faire</span><span style="font-weight:600;color:#854F0B">Q3 - demarrage juillet 2026</span></div>
 </div>
 <div style="margin-top:20px" id="briefs-table"></div>
 </div>
@@ -440,7 +441,7 @@ const COLS=[
 {t:'w',l:'S53',g:'Dec',s:new Date(2026,11,28),e:new Date(2027,0,3)}
 ];
 const NC=COLS.length;
-const TODAY=new Date(2026,5,15);
+const TODAY=new Date(2026,5,22);
 function todayCol(){for(let i=0;i<NC;i++){if(TODAY>=COLS[i].s&&TODAY<=COLS[i].e)return i;}return -1;}
 function todayPct(){const i=todayCol();if(i<0)return 0;const c=COLS[i];return Math.round(((TODAY-c.s)/(c.e-c.s))*100);}
 const TC=todayCol(),TP=todayPct();
@@ -469,46 +470,77 @@ const P=[
 {n:'Health Score',o:'Henri',st:'done',m:[3,4],cat:'crm',okr:'Brief 8',okrt:'CRM',burl:'https://docs.google.com/document/d/1JiUuyRTKEETGqYveYIcRLTU1YeSfDmKemEpAr9uThHo/edit?tab=t.0',b:8,dur:2.5,note:'Livre apres retours Victor'},
 {n:'Account Targeting',o:'Henri',st:'done',m:[0,2],cat:'crm',note:'Termine Q1'},
 {n:'Global Process Mapping',o:'Aissatou',st:'done',m:[0,0],cat:'crm',note:'Termine Jan'},
-{s:'CRM - En cours (Mai-Juin)',id:'sec-wip'},
+{s:'CRM - Livres (Mai-Juin)',id:'sec-wip'},
 {n:'Correction Booking Value',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 9',okrt:'CRM',burl:'https://docs.google.com/document/d/1nelxL62QCapen-vr_X7xlYjBUgYRZDiFRKnM2FdmxQk/edit?usp=sharing',b:9,dur:1,note:'Finished (Monday 11/05)'},
 {n:'Targeted Contact',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 10',okrt:'CRM',burl:'https://docs.google.com/document/d/1lIGkr01KRm7c5yvqoOFawgPNryjLTwHtxjsjHtJrV4U/edit?tab=t.0',b:10,dur:2,note:'Finished (Monday 11/05)'},
 {n:'Verbal Call - Lightning Page',o:'Henri',st:'done',m:[4,4],cat:'crm',okr:'Brief 11',okrt:'CRM',burl:'https://docs.google.com/document/d/1y4dyTsPABgcgkwN-YV9rId9UfiGzw8UC49O4WnEiR2g/edit?tab=t.0',b:7,dur:1,note:'Livre le 30/04 (Monday: Finished)'},
 {n:'Churn & Retention Forecast',o:'Henri',st:'done',m:[4,5],ds:'2026-05-11',de:'2026-05-22',cat:'crm',burl:'https://docs.google.com/document/d/106mB8EWo9kBHlj8uU1z7U50oU2vTpL-Zup4OI96DocU/edit?tab=t.0',b:11,dur:1.5,note:'Finished le 22/05 (Monday: Finished)'},
 {n:'Approval Process',o:'Aissatou',st:'done',m:[4,6],ds:'2026-05-18',de:'2026-06-08',cat:'crm',okr:'Brief 12',okrt:'CRM',burl:'https://docs.google.com/document/d/1nyw1rd3Cqvit9TY4RV1DOw0217awODcJ_ECop_AqmAs/edit?tab=t.0',b:15,note:'Finished le 08/06 (Monday: Finished)'},
 {n:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'done',m:[4,5],ds:'2026-05-11',de:'2026-05-25',cat:'crm',burl:'https://docs.google.com/document/d/1gmASqc9E9RoTPVlcTW7yWtyKRa7c34gtAOLkvamC0_w/edit?tab=t.0',b:14,dur:2.4,note:'Finished le 25/05 (Monday: Finished)'},
-{n:'Refresh PREPROD & Sandboxes',o:'Henri',st:'todo',m:[4,5],cat:'infra',note:'Apres Booking Value'},
-{s:'CRM - Planifie (Juin)',id:'sec-jun'},
-{n:'Product Users: retrait skills code',o:'Henri',st:'todo',m:[5,5],cat:'crm',note:'Suite deploiement Avril'},
-{n:'New Stage New Contract & Upsell',o:'Henri',st:'todo',m:[5,6],cat:'crm',burl:'https://docs.google.com/document/d/17ittpHQbNHnh0jdWJV4q3ZXSO_2BgUEvHmXNlMMwY_Y/edit?tab=t.0',b:16,dur:8,note:'Revamp funnel'},
-{n:'Scoring MEDDICC - Opportunities',o:'Henri',st:'wip',m:[5,6],ds:'2026-06-09',cat:'crm',burl:'https://docs.google.com/document/d/1kfLwg4-vURMqL72SnCCPrjvwVHk3EO7kyjw3d1ZM9qg/edit?tab=t.0',b:17,dur:9.5,note:'Demarre le 09/06 (Monday: UAT In Progress) - extension scoring Accounts'},
-{n:'Trial & Onboarding Orchestration',o:'Henri',st:'todo',m:[5,6],cat:'crm',burl:'https://docs.google.com/document/d/1vgnFAx-OK2bHtv7Bz8TQA7HUdFH-Yn7H4C0chZYOisE/edit?usp=sharing',b:18,note:'Reunion de design terminee le 12/06 - implementation a venir'},
-{n:'SOD & Touch Level',o:'Henri',st:'wip',m:[5,6],ds:'2026-06-08',cat:'crm',burl:'https://docs.google.com/document/d/1qgJONYEaD3eSa8wBpL3NKXK1XjCvkuFDfH6YBqZTuyg/edit?tab=t.0',b:19,dur:1.5,note:'Demarre le 08/06 (Monday: UAT In Progress)'},
-{n:'Automatisation Booking Values',o:'Henri',st:'wip',m:[4,6],ds:'2026-05-18',cat:'crm',burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0',b:13,dur:2.65,note:'En PROD depuis 28/05, validation Audrey en cours (08/06)'},
-{n:'Decommissionnement Salesloft',o:'TBD',st:'todo',m:[5,6],cat:'crm',note:'Lie a Lemlist H2'},
+{n:'SOD & Touch Level - V2',o:'Aissatou',st:'done',m:[5,6],ds:'2026-06-08',de:'2026-06-22',cat:'crm',burl:'https://docs.google.com/document/d/1qgJONYEaD3eSa8wBpL3NKXK1XjCvkuFDfH6YBqZTuyg/edit?tab=t.0',dur:1.5,note:'Finished le 22/06 (Monday: Finished)'},
+{s:'CRM - Juin (en cours)',id:'sec-jun'},
+{n:'Brief Scoring MEDDICC - Opportunities',o:'Henri',st:'wip',m:[5,6],ds:'2026-06-09',cat:'crm',burl:'https://docs.google.com/document/d/1kfLwg4-vURMqL72SnCCPrjvwVHk3EO7kyjw3d1ZM9qg/edit?tab=t.0',dur:6.35,note:'Monday: Ready to deploy - extension du scoring Accounts'},
+{n:'Automatisation New Logo & Expansion Booking Values',o:'Henri',st:'wip',m:[4,6],ds:'2026-05-18',cat:'crm',burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0',dur:2.65,note:'En PROD depuis 28/05, validation Audrey'},
+{n:'Customer Trial & Onboarding - Implementation',o:'Henri',st:'todo',m:[5,6],cat:'crm',burl:'https://docs.google.com/document/d/1vgnFAx-OK2bHtv7Bz8TQA7HUdFH-Yn7H4C0chZYOisE/edit?usp=sharing',dur:4.5,note:'Reunion de design faite le 12/06 (Monday: To Do)'},
+{s:'CRM - Q3 (Juillet-Septembre)',id:'sec-q3'},
+{n:'Classification "environnement" sur les Product Projects SFDC',o:'A. Dixneuf',st:'todo',m:[6,6],cat:'crm',dur:2,note:'Q3 Juillet (Monday: To Do)'},
+{n:"Brief New Stage 'New Contract' & 'Upsell'",o:'A. Dixneuf',st:'todo',m:[6,6],cat:'crm',burl:'https://docs.google.com/document/d/17ittpHQbNHnh0jdWJV4q3ZXSO_2BgUEvHmXNlMMwY_Y/edit?tab=t.0',dur:5,note:'Q3 Juillet (Monday: To Do)'},
+{n:'Champ "Targeted Prospect" (base du Targeted Contact)',o:'Henri',st:'todo',m:[6,6],cat:'crm',dur:3.1,note:'Q3 Juillet (Monday: To Do)'},
+{n:'BONUS - Brief Sub Industries (Targeting)',o:'Henri',st:'todo',m:[6,6],cat:'crm',dur:4.7,note:'Q3 Juillet - bonus (Monday: To Do)'},
+{n:'Creer des champs pour suivre les dates de changement de stage',o:'Henri',st:'todo',m:[7,7],cat:'crm',dur:2.15,note:'Q3 Aout (Monday: To Do)'},
+{n:'Demenagement Monday - boards CS (automatisations simples)',o:'Henri',st:'todo',m:[7,7],cat:'crm',dur:1,note:'Q3 Aout (Monday: To Do)'},
+{n:'Demenagement Monday - boards CS (automatisations complexes)',o:'Henri',st:'todo',m:[7,7],cat:'crm',dur:2,note:'Q3 Aout (Monday: To Do)'},
+{n:'New Pricing Model',o:'Henri',st:'todo',m:[7,7],cat:'crm',note:'Q3 Aout - SALESFORCE - PROJECT (Monday: To Do)'},
+{n:'Update Success Plan field on Account',o:'Henri',st:'todo',m:[8,8],cat:'crm',dur:0.5,note:'Q3 Septembre (Monday: To Do)'},
+{n:'Aligner la Sales Confidence Renew ISO sur le Healthscore',o:'Henri',st:'todo',m:[8,8],cat:'crm',dur:1,note:'Q3 Septembre (Monday: To Do)'},
+{n:'PRODUCT USERS - Retrait des skills du code Apex',o:'Aissatou',st:'todo',m:[8,8],cat:'crm',dur:0.5,note:'Q3 Septembre (Monday: To Do)'},
 {s:'Agentique',id:'sec-agent'},
-{n:'Connecteurs MCP de base + Workspace (sandbox)',o:'Theo',st:'done',m:[3,5],cat:'agent',okrt:'AI Indus',note:'Deja en place : Salesforce, Eng, Tableau/BigQuery, Ads, Modjo + Google Workspace connecte (sandbox)'},
-{n:'Gouvernance agents Dust + inventaire',o:'Aissatou',st:'done',m:[3,5],cat:'agent',okrt:'AI Indus',note:'94% actifs Dust, workflow de gouvernance, conformite v1'},
-{n:'Auth / credentials des connecteurs',o:'Theo',st:'wip',m:[5,6],cat:'agent',okrt:'AI Indus',note:'Lane 2 - frein n1 COMEX, prerequis a tout le reste (J+30)'},
-{n:'MCP Workspace generalise + acces donnee client',o:'Theo',st:'wip',m:[5,6],cat:'agent',okrt:'AI Indus',note:'Lane 3 - sandbox vers entreprise + archi acces donnee (J+30, prioritaire)'},
-{n:'Nouveaux MCP : Google Chat, Meta Ads, Zendesk, Productboard',o:'Theo',st:'todo',m:[6,7],cat:'agent',okrt:'AI Indus',note:'Lane 2 - connecteurs manquants (J+30 vers J+60)'},
-{n:'Donnees pretes pour les agents (P1 vers P2/P3)',o:'Theo',st:'todo',m:[7,8],cat:'agent',okrt:'AI Indus',note:'Lane 3 - conversationnel propre + Tableau/BigQuery contextualises'},
-{n:'Standard ROI + dashboard ROI net COMEX + audit IA',o:'Theo',st:'todo',m:[6,8],cat:'agent',okrt:'AI Indus',note:'Lane 4 - fiches ROI, credentials v1, Agentic Playbook'},
-{n:'Orchestrateur multi-agent + MCP as-a-service (SLA)',o:'Theo',st:'todo',m:[7,8],cat:'agent',okrt:'AI Indus',note:'Lane 2 - benchmark puis demo (J+60 vers J+90)'},
-{n:'AI Ops nommes + montee en autonomie des equipes',o:'Theo',st:'todo',m:[6,8],cat:'agent',okrt:'AI Indus',note:'Lane 1 - 1 AI Ops par equipe, Champions co-pilotes'},
-{n:'Enablement & adoption agentique',o:'Aissatou',st:'todo',m:[6,8],cat:'agent',okrt:'AI Indus',note:'Lane 5 - cas d usage, permanences IA, dashboard adoption, 5 equipes avec agent en process (OKR individuel Aissatou)'},
+{n:'Auth / credentials des connecteurs',o:'Theo',st:'wip',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+30 - frein n1 COMEX, prerequis a tout le reste'},
+{n:'MCP Google Chat finalise',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+30'},
+{n:'Securite des connecteurs Ads',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+30 - Google Ads + Analytics'},
+{n:'Rangement skills / plugins par equipe',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+30 (fini a J+60)'},
+{n:'Systeme de plugins par departement',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+60'},
+{n:'MCP Meta Ads / Zendesk / Productboard',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+60 - connecteurs manquants'},
+{n:'Benchmark orchestrateur multi-agent',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+60'},
+{n:'Orchestrateur multi-agent en demo',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+90'},
+{n:'MCP as-a-service (SLA)',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+90'},
+{n:'MCP Launchdarkly + postgres',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) J+90'},
+{n:'LinkedIn - evaluation du vrai MCP',o:'Theo',st:'todo',m:[9,9],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) - non prioritaire, au-dela de la fenetre 90j'},
+{n:'MCP iAdvize natif',o:'Theo',st:'todo',m:[9,9],cat:'agent',okrt:'AI Indus',note:'Tools (lane 2) - au-dela de la fenetre 90j'},
+{n:'Generaliser le MCP Workspace',o:'Theo',st:'wip',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+30 - sandbox vers entreprise, 1ere tache Theo, prioritaire'},
+{n:'Acces securise a la donnee client',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+30 - conversationnel puis client puis performance'},
+{n:'Cartographier la dette data + docs',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+30 - trancher Dust vs Claude'},
+{n:'Recenser skills & docs par equipe',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+30 - ce qui est partageable'},
+{n:'Donnees conversationnelles propres',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+60 - interrogeables par un agent'},
+{n:'Tableau + BigQuery contextualises',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+60 - regles metier'},
+{n:'Regle d usage diffusee',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+60 - ou poser l agent / ou tenir la conversation'},
+{n:'Donnees clients 2e niveau ouvertes',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+90 - comptes, retours produit'},
+{n:'Donnees de performance (P3)',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+90 - conversion, usage produit'},
+{n:'Connaissance structuree dans Workspace',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Donnees (lane 3) J+90 - docs & skills alimentent les agents'},
+{n:'Standard ROI valide + template',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+30 - methode + fiche ROI prete a l emploi'},
+{n:'Confidentialite Finance + audit IA cadre',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+30 - d abord People & Finance'},
+{n:'Cartographie des acces partages',o:'Theo',st:'todo',m:[6,6],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+30 - drives, comptes de service, credentials API'},
+{n:'Credentials v1 + permissions RH (Lucca)',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+60'},
+{n:'Fiche ROI par initiative + 1ers chiffres',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+60'},
+{n:'1er dashboard ROI net au COMEX',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+60 - valeur creee moins couts'},
+{n:'Audit IA livre (People & Finance)',o:'Theo',st:'todo',m:[7,7],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+60 - socle des futurs projets'},
+{n:'Conformite au-dela de Dust, opposable',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+90 - tous types d agents et autres OS'},
+{n:'Workflows critiques fiabilises / monitores',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+90 - revue + monitoring'},
+{n:'Agentic Playbook = reference unique',o:'Theo',st:'todo',m:[8,8],cat:'agent',okrt:'AI Indus',note:'Gouvernance (lane 4) J+90 - reference pour creer n importe quel agent'},
 {n:'Agent Write Safety Net SFDC (PREPROD vers PROD)',o:'Henri',st:'todo',m:[6,8],cat:'agent',okrt:'AI Indus',note:'OKR A3 imperatif - detection des ecritures agents + rollback par record'},
 {n:'Agentisation de la chaine d implementation CRM',o:'Henri',st:'todo',m:[6,8],cat:'agent',okrt:'AI Indus',note:'OKR A3 - maillons agentises (doc auto / tests de non-regression)'},
 {s:'Infrastructure & maintenance',id:'sec-infra'},
 {n:'RUN Salesforce - tickets sous SLA',o:'Henri',st:'wip',m:[6,8],cat:'infra',okrt:'CRM',note:'OKR A1 - 85 a 95% des tickets resolus dans leur SLA'},
 {n:'Menage ete - dette technique SFDC',o:'Henri',st:'todo',m:[6,7],cat:'infra',okrt:'CRM',note:'OKR A2 - Salesloft, Scheduled Flows, Packages, Product Consumption, skills Apex'},
 {n:'Rationaliser & documenter l outillage Eng',o:'Henri',st:'todo',m:[6,7],cat:'infra',note:'Reduire le nombre de depots GitHub, retirer l obsolete'},
-{n:'Monitoring des workflows critiques',o:'Theo',st:'todo',m:[7,8],cat:'infra',note:'Revue + monitoring (lane 4 gouvernance)'},
 {n:'Users techniques par synchro',o:'Henri',st:'todo',m:[6,7],cat:'infra',note:'Suite incident user.technique'},
 {n:'Reconnecter ProductBoard',o:'Henri',st:'todo',m:[6,6],cat:'infra',note:'Voir Florent Gosselin'},
 ];
 
 let filter='all';
+let showOld=false;
 function shouldShow(p){
+  if(!showOld && filter!=='done' && p.st==='done'){var _de=p.de?new Date(p.de):m2de(p.m[1]);if(_de<new Date(2026,5,1))return false;}
   if(filter==='all')return true;
   if(filter==='done')return p.st==='done';
   if(filter==='wip')return p.st==='wip';
@@ -523,14 +555,15 @@ function sectionHasVisible(idx){
   return false;
 }
 
-document.querySelectorAll('.controls button').forEach(btn=>{
+document.querySelectorAll('.controls button[data-f]').forEach(btn=>{
   btn.addEventListener('click',function(){
-    document.querySelectorAll('.controls button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.controls button[data-f]').forEach(b=>b.classList.remove('active'));
     this.classList.add('active');
     filter=this.dataset.f;
     renderGantt();
   });
 });
+document.getElementById('toggleOld').addEventListener('click',function(){showOld=!showOld;this.classList.toggle('active',showOld);this.textContent=(showOld?'\u2212':'+')+' Termines avant juin';renderGantt();});
 
 function renderGantt(){
   const t=document.getElementById('gantt');
@@ -605,29 +638,52 @@ const briefs=[
   {n:4,t:'[BONUS] Brief Sub Industries (Targeting)',o:'-',st:'todo',p:'Juil',dur:4.7,note:'Projet (A1) - bonus'},
   {n:5,t:'Menage ete - Scheduled Flows',o:'-',st:'todo',p:'Juil',dur:3,note:'Menage ete - dette technique (A2)'},
   {n:6,t:'Menage ete - Packages',o:'-',st:'todo',p:'Juil',dur:3,note:'Menage ete - dette technique (A2)'},
-  {n:7,t:'Champs dates de changement de stage',o:'-',st:'todo',p:'Aout',dur:2.15,note:'Projet (A1)'},
+  {n:7,t:'Creer des champs pour suivre les dates de changement de stage',o:'-',st:'todo',p:'Aout',dur:2.15,note:'Projet (A1)'},
   {n:8,t:'Demenagement Monday - boards CS (automatisations simples)',o:'-',st:'todo',p:'Aout',dur:1,note:'Projet (A1)'},
   {n:9,t:'Demenagement Monday - boards CS (automatisations complexes)',o:'-',st:'todo',p:'Aout',dur:2,note:'Projet (A1)'},
-  {n:10,t:'Menage ete - Decommissionnement Salesloft',o:'-',st:'todo',p:'Aout',dur:9,note:'Menage ete - dette technique (A2)'},
-  {n:11,t:'Update Success Plan field on Account',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
-  {n:12,t:'Aligner Sales Confidence Renew ISO sur le Healthscore',o:'-',st:'todo',p:'Sept',dur:1,note:'Projet (A1)'},
-  {n:13,t:'Product Users - Retrait skills du code Apex',o:'Aissatou Gassama',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
-  {n:14,t:'Menage ete - Decommissionnement Product Consumption',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Menage ete - dette technique (A2)'},
+  {n:10,t:'New Pricing Model',o:'-',st:'todo',p:'Aout',note:'Projet (A1) - ajoute en Aout'},
+  {n:11,t:'Menage ete - Decommissionnement Salesloft',o:'-',st:'todo',p:'Aout',dur:9,note:'Menage ete - dette technique (A2)'},
+  {n:12,t:'Update Success Plan field on Account',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
+  {n:13,t:'Aligner la Sales Confidence Renew ISO sur le Healthscore',o:'-',st:'todo',p:'Sept',dur:1,note:'Projet (A1)'},
+  {n:14,t:'PRODUCT USERS - Retrait des skills du code Apex',o:'Aissatou Gassama',st:'todo',p:'Sept',dur:0.5,note:'Projet (A1)'},
+  {n:15,t:'Menage ete - Decommissionnement Product Consumption',o:'-',st:'todo',p:'Sept',dur:0.5,note:'Menage ete - dette technique (A2)'},
+  {n:16,t:'Creation champ Business Stage',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Livre Avril',burl:'https://docs.google.com/document/d/1ALuz0BV2Mw5sGbeQ0hKvUTFcyVTzSPx4urAq5_cXcQk/edit?tab=t.0'},
+  {n:17,t:'Scoring MEDDICC - Accounts',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:4,note:'En production 22/04',burl:'https://docs.google.com/document/d/1cEZVom8eLcM-nhDzPdn7xEDtDkVrAsmtnKOltT8hHyI/edit?tab=t.0'},
+  {n:18,t:'CS Portfolio Plan',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre Avril',burl:'https://docs.google.com/document/d/1BicHrogEf1m-Fh2EUA6C7ioP_ShKQ4p7-4lvijARLm0/edit?tab=t.0'},
+  {n:19,t:'Sales Layout Lot 2/3 - Opportunities',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Livre Avril'},
+  {n:20,t:'Brief Propriete Buyer Intents',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre 16/04',burl:'https://docs.google.com/document/d/1hN1vAa0sqZ_ggEKD2we-sGSsnPk0e00RamcOGDlNBCg/edit?tab=t.0'},
+  {n:21,t:'Brief Mailer Global Strategy',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:0.5,note:'Livre 16/04',burl:'https://docs.google.com/document/d/1AKZ7V_WsN4X5_S9StcZPadhYs1PIbMIAv8KMTL9mcJQ/edit?tab=t.0'},
+  {n:22,t:'Brief Verbal Call x Forecast',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1,note:'Livre 30/04',burl:'https://docs.google.com/document/d/1y4dyTsPABgcgkwN-YV9rId9UfiGzw8UC49O4WnEiR2g/edit?tab=t.0'},
+  {n:23,t:'Brief Healthscore Automatise',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2.5,note:'Livre 30/04',burl:'https://docs.google.com/document/d/1JiUuyRTKEETGqYveYIcRLTU1YeSfDmKemEpAr9uThHo/edit?tab=t.0'},
+  {n:24,t:'Correction Booking Value',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1,note:'Finished 11/05',burl:'https://docs.google.com/document/d/1nelxL62QCapen-vr_X7xlYjBUgYRZDiFRKnM2FdmxQk/edit?usp=sharing'},
+  {n:25,t:'Brief Targeted Contact',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:2,note:'Finished 11/05',burl:'https://docs.google.com/document/d/1lIGkr01KRm7c5yvqoOFawgPNryjLTwHtxjsjHtJrV4U/edit?tab=t.0'},
+  {n:26,t:'Churn & Retention Forecast Scenario',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:1.5,note:'Finished 22/05',burl:'https://docs.google.com/document/d/106mB8EWo9kBHlj8uU1z7U50oU2vTpL-Zup4OI96DocU/edit?tab=t.0'},
+  {n:27,t:'Product Feedback',o:'Henri',st:'done',p:'Q2 (livres)',q2:true,dur:3,note:'Finished 03/06',burl:'https://docs.google.com/document/d/1idlKxFp3LcorN4PKgUFZymQhPrnK1kV1k9grOpxevoI/edit?usp=sharing'},
+  {n:28,t:'Automatisation New Logo & Expansion Booking Values',o:'Henri',st:'wip',p:'Q2 (livres)',q2:true,dur:2.65,note:'En PROD depuis 28/05',burl:'https://docs.google.com/document/d/11AsShA33f_tppa9Gk4DBGbfwqhfVJSsk3JQnUz6JgGs/edit?tab=t.0'},
+  {n:29,t:'AVG Monthly Visit Aggregate',o:'Aissatou',st:'done',p:'Q2 (livres)',q2:true,dur:2.4,note:'Finished 25/05',burl:'https://docs.google.com/document/d/1gmASqc9E9RoTPVlcTW7yWtyKRa7c34gtAOLkvamC0_w/edit?tab=t.0'},
+  {n:30,t:'Approval Process',o:'Aissatou',st:'done',p:'Q2 (livres)',q2:true,note:'Finished 08/06',burl:'https://docs.google.com/document/d/1nyw1rd3Cqvit9TY4RV1DOw0217awODcJ_ECop_AqmAs/edit?tab=t.0'},
 ];
 const bt=document.getElementById('briefs-table');
-let bh='<table style="width:100%;border-collapse:collapse;background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden">';
+let showQ2=false;
 const ths='padding:10px 12px;font-size:11px;color:#888;font-weight:500';
-bh+=`<thead><tr style="background:#f0f4f8"><th style="${ths};text-align:left">#</th><th style="${ths};text-align:left">Brief</th><th style="${ths};text-align:center">Owner</th><th style="${ths};text-align:center">Mois</th><th style="${ths};text-align:center">Statut</th><th style="${ths};text-align:center">Charge</th><th style="${ths};text-align:left">Notes</th></tr></thead><tbody>`;
-let lastP='';
-briefs.forEach(b=>{
-  const pc=b.st==='done'?'pill-done':b.st==='wip'?'pill-wip':'pill-todo';
-  const pt=b.st==='done'?'Termine':b.st==='wip'?'En cours':'A faire';
-  const rowBg=b.st==='done'?'background:#fafff8;':'';
-  if(b.p!==lastP){bh+=`<tr><td colspan="7" style="padding:8px 12px;font-weight:600;font-size:12px;color:#1F3864;background:#f0f4f8">${b.p} 2026</td></tr>`;lastP=b.p}
-  bh+=`<tr id="brief-${b.n}" style="${rowBg}border-bottom:1px solid #f0f0f0"><td style="padding:8px 12px;font-weight:600;color:#1F3864;font-size:13px">${b.n}</td><td style="padding:8px 12px;font-size:12px">${b.burl?'<a href="'+b.burl+'" target="_blank" style="color:inherit;text-decoration:underline dotted #aaa;text-underline-offset:3px" title="Ouvrir le brief">'+b.t+'</a>':b.t}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.o}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.p}</td><td style="padding:8px 12px;text-align:center"><span class="pill ${pc}">${pt}</span></td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#555;font-weight:500">${b.dur?b.dur+' j':'-'}</td><td style="padding:8px 12px;font-size:11px;color:#666">${b.note}</td></tr>`;
-});
-bh+='</tbody></table>';
-bt.innerHTML=bh;
+function renderBriefs(){
+  let bh='<div style="margin-bottom:10px"><button id="toggleQ2" style="font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid #ddd;cursor:pointer;background:'+(showQ2?'#1F3864':'#fff')+';color:'+(showQ2?'#fff':'#666')+'">'+(showQ2?'\u2212 Masquer les briefs Q2 (livres)':'+ Afficher les briefs Q2 (livres)')+'</button></div>';
+  bh+='<table style="width:100%;border-collapse:collapse;background:#fff;border-radius:12px;border:1px solid #e8e8e8;overflow:hidden">';
+  bh+=`<thead><tr style="background:#f0f4f8"><th style="${ths};text-align:left">#</th><th style="${ths};text-align:left">Brief</th><th style="${ths};text-align:center">Owner</th><th style="${ths};text-align:center">Mois</th><th style="${ths};text-align:center">Statut</th><th style="${ths};text-align:center">Charge</th><th style="${ths};text-align:left">Notes</th></tr></thead><tbody>`;
+  let lastP='';
+  briefs.forEach(b=>{
+    if(b.q2 && !showQ2) return;
+    const pc=b.st==='done'?'pill-done':b.st==='wip'?'pill-wip':'pill-todo';
+    const pt=b.st==='done'?'Termine':b.st==='wip'?'En cours':'A faire';
+    const rowBg=b.st==='done'?'background:#fafff8;':'';
+    if(b.p!==lastP){const hdr=b.q2?'Briefs Q2 - livres (avant juin)':b.p+' 2026';bh+=`<tr><td colspan="7" style="padding:8px 12px;font-weight:600;font-size:12px;color:#1F3864;background:#f0f4f8">${hdr}</td></tr>`;lastP=b.p}
+    bh+=`<tr style="${rowBg}border-bottom:1px solid #f0f0f0"><td style="padding:8px 12px;font-weight:600;color:#1F3864;font-size:13px">${b.n}</td><td style="padding:8px 12px;font-size:12px">${b.burl?'<a href="'+b.burl+'" target="_blank" style="color:inherit;text-decoration:underline dotted #aaa;text-underline-offset:3px" title="Ouvrir le brief">'+b.t+'</a>':b.t}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.o}</td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#888">${b.q2?'Q2':b.p}</td><td style="padding:8px 12px;text-align:center"><span class="pill ${pc}">${pt}</span></td><td style="padding:8px 12px;text-align:center;font-size:11px;color:#555;font-weight:500">${b.dur?b.dur+' j':'-'}</td><td style="padding:8px 12px;font-size:11px;color:#666">${b.note}</td></tr>`;
+  });
+  bh+='</tbody></table>';
+  bt.innerHTML=bh;
+  document.getElementById('toggleQ2').addEventListener('click',function(){showQ2=!showQ2;renderBriefs();});
+}
+renderBriefs();
 </script>
 </body>
 </html>
