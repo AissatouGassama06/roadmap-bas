@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap Agentique Corporate — 30/60/90</title>
+<style>
+:root{
+  --ink:#1a1a1a; --bg:#f8f9fa; --card:#fff; --line:#e8e8e8;
+  --navy:#1F3864; --navy-soft:#eef2f8; --green:#1D9E75; --green-bg:#f1faf6;
+  --blue:#378ADD; --orange:#D85A30; --purple:#7F77DD; --muted:#888;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);padding:24px;font-size:13px;line-height:1.5}
+.header{margin-bottom:16px;border-bottom:2px solid var(--navy);padding-bottom:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.header h1{font-size:20px;font-weight:600;color:var(--navy);letter-spacing:-0.3px}
+.header .sub{font-size:12px;color:var(--muted);margin-top:3px}
+.header .meta{color:var(--muted);font-size:11px;line-height:1.5;text-align:right}
+.header .meta b{color:#555}
+.nav-back{display:inline-block;margin-bottom:14px;font-size:11.5px;color:var(--blue);text-decoration:none;font-weight:500}
+.nav-back:hover{text-decoration:underline}
+.intro{color:#555;font-size:12px;margin:2px 0 16px;max-width:1100px}
+.done-block{background:var(--green-bg);border:1px solid #cdeede;border-left:4px solid var(--green);border-radius:8px;padding:11px 15px;margin-bottom:20px;font-size:11.5px;color:#444}
+.done-block b{color:var(--navy)}
+.section{font-size:15px;font-weight:600;color:var(--navy);margin:26px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--navy);letter-spacing:-0.2px}
+.section-note{font-size:11.5px;color:var(--muted);margin:-6px 0 14px;max-width:1100px}
+.lane{margin:0 0 14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.lane-title{background:var(--navy);color:#fff;font-weight:600;font-size:13px;padding:9px 15px;display:flex;align-items:baseline;gap:8px}
+.lane-title .num{opacity:.65;font-weight:700}
+.lane-title .own{opacity:.8;font-weight:400;font-size:11px;margin-left:auto}
+.cols{display:grid;grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.col{padding:13px 15px;border-right:1px solid var(--line)}
+.col:last-child{border-right:none}
+@media(max-width:820px){.col{border-right:none;border-bottom:1px solid var(--line)}.col:last-child{border-bottom:none}}
+.col h4{margin:0 0 9px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);border-bottom:1px solid var(--navy-soft);padding-bottom:5px}
+.col ul{margin:0;padding:0;list-style:none}
+.col li{margin-bottom:10px}
+.col li strong{display:block;font-size:12px;color:var(--ink);font-weight:600}
+.col li span{color:var(--muted);font-size:11.5px}
+.tag{display:inline-block;font-size:9px;padding:1px 6px;border-radius:4px;background:var(--orange);color:#fff;font-weight:600;vertical-align:middle;margin-left:5px}
+.footer{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:10.5px}
+</style>
+</head>
+<body>
+
+<a class="nav-back" href="roadmap-business-agentic-systems.html">&larr; Roadmap Business &amp; Agentic Systems (OKRs Q2-Q3)</a>
+
+<div class="header">
+  <div>
+    <h1>Roadmap agentique opérationnelle — transverse + par département</h1>
+    <div class="sub">Pour Théo et les AI Ops · une description courte par chantier, pour exécution</div>
+  </div>
+  <div class="meta">
+    <div><b>Aïssatou Gassama</b> — Head of Business &amp; Agentic Systems</div>
+    <div>Déclinaison opérationnelle du deck Execs · v2 · 22 juin 2026</div>
+  </div>
+</div>
+
+<div class="intro">Déclinaison opérationnelle du deck Execs, sur deux niveaux : les <strong>chantiers transverses</strong> (la fondation, portée par Théo et les AI Ops) et le détail <strong>par département</strong>. Chaque item est expliqué en 1-2 phrases. Documents liés (Work OS) : vue d'ensemble 30/60/90, fichier KPIs, sujets corporate hors 90 j.</div>
+
+<div class="done-block">
+  <b>✅ Déjà en place</b> — Connecteurs : Salesforce (RO OS), Eng (GitHub/Jira/Datadog), Tableau+BigQuery, Google Ads+Analytics, Modjo natif. · Google Workspace connecté à Claude (sandbox). · Guidelines IA + annexe charte IT, conformité v1, inventaire des agents Dust + workflow de gouvernance. · 94% actifs sur Dust ; communauté Champions + Core team animée. · Agents live : Marketing (Message Map, copywriting, traduction), People (Luciole), Product OS, RO OS.
+</div>
+
+<div class="section">Partie 1 — Chantiers transverses</div>
+
+<div class="lane">
+  <div class="lane-title"><span class="num">1.</span> Capacité &amp; équipe (AI Ops)</div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Ops &amp; Champions sur les premiers chantiers</strong><span>Les Ops et AI Champions déjà en place démarrent sans attendre les AI Ops dédiés.</span></li>
+      <li><strong>AI Ops dédiés nommés (J+20)</strong><span>Un AI Ops par équipe est désigné et démarre un onboarding accéléré (outils, gouvernance, périmètre).</span></li>
+      <li><strong>Théo opérationnel sur Tools &amp; Workspace</strong><span>Théo prend en main les connecteurs et la généralisation du Workspace.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>AI Ops productifs</strong><span>Chaque AI Ops livre concrètement dans son équipe.</span></li>
+      <li><strong>Communauté élargie aux AI Ops</strong><span>Le rituel Champions + Core team intègre les AI Ops dédiés ; partage des pratiques.</span></li>
+      <li><strong>Champions co-pilotes</strong><span>Des Champions co-pilotent certains chantiers pour que le savoir ne repose pas sur une seule personne.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Équipes autonomes sur les agents simples</strong><span>Chaque équipe crée et maintient ses agents simples sans dépendre de Théo.</span></li>
+      <li><strong>AI Ops sur les cas complexes</strong><span>Montée en charge sur les cas techniques (orchestration, données sensibles).</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title"><span class="num">2.</span> Tools : MCP + skills + plugins</div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Authentification / credentials<span class="tag">PRIORITÉ</span></strong><span>Corriger l'auth des connecteurs perso, frein n°1 du COMEX (demande Kilian). Pré-requis à tout le reste.</span></li>
+      <li><strong>MCP Google Chat finalisé</strong><span>Finaliser le connecteur Google Chat.</span></li>
+      <li><strong>Sécurité des connecteurs Ads</strong><span>Repasser la sécurité sur Google Ads + Analytics (déjà connectés par Yves).</span></li>
+      <li><strong>Rangement skills / plugins par équipe</strong><span>Lancer le tri et l'organisation par équipe (terminé à J+60).</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Système de plugins par département</strong><span>Chaque département a sa bibliothèque de plugins et d'outils validés.</span></li>
+      <li><strong>MCP Meta Ads · Zendesk · Productboard</strong><span>Connecter les outils encore manquants.</span></li>
+      <li><strong>Benchmark orchestrateur multi-agent</strong><span>Comparer les solutions d'orchestration et trancher.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Orchestrateur multi-agent en démo</strong><span>Mettre en démo la solution retenue.</span></li>
+      <li><strong>MCP « as a service » (SLA)</strong><span>Offrir les connecteurs comme un service avec un niveau de service garanti.</span></li>
+      <li><strong>MCP Launchdarkly + postgres</strong><span>Connecter ces deux sources.</span></li>
+      <li><strong>LinkedIn</strong><span>Évaluation du vrai MCP (non prioritaire) ; le contournement AppScript suffit en attendant, livraison au-delà si retenu.</span></li>
+      <li><strong>MCP iAdvize natif</strong><span>Au-delà de la fenêtre 90 jours.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title"><span class="num">3.</span> Contexte &amp; données (données + docs)</div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Généraliser le MCP Workspace<span class="tag">PRIORITÉ</span></strong><span>Passer le connecteur Google Workspace de la sandbox à l'échelle de l'entreprise. 1ère tâche de Théo.</span></li>
+      <li><strong>Accès sécurisé à la donnée client</strong><span>Lancer l'architecture d'accès (blocage n°1) : conversationnel d'abord, puis client, puis performance.</span></li>
+      <li><strong>Cartographier la dette data + docs</strong><span>Recenser données et docs/knowledge base non documentés ou obsolètes ; trancher Dust vs Claude (migration au cas par cas, pas de bascule en masse, seulement sur déclencheur).</span></li>
+      <li><strong>Recenser skills &amp; docs par équipe</strong><span>Identifier ce qui est réellement partageable.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Données conversationnelles propres</strong><span>Propres, documentées, interrogeables par un agent.</span></li>
+      <li><strong>Tableau + BigQuery contextualisés</strong><span>Ajouter les règles métier pour qu'un agent puisse les exploiter.</span></li>
+      <li><strong>Règle d'usage diffusée</strong><span>Où poser l'agent, où tenir la conversation.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Données clients 2e niveau ouvertes</strong><span>Comptes, retours produit.</span></li>
+      <li><strong>Données de performance (P3)</strong><span>Accessibles aux agents (conversion, usage produit).</span></li>
+      <li><strong>Connaissance structurée dans Workspace</strong><span>Docs et skills alimentent directement les agents.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title"><span class="num">4.</span> Gouvernance, sécurité &amp; ROI</div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Standard ROI validé + template</strong><span>Valider et diffuser la méthode (catégories de valeur, mesure de référence, attribution) + un template de fiche ROI prêt à l'emploi.</span></li>
+      <li><strong>Confidentialité Finance + audit IA cadré</strong><span>Lancer le cadre de confidentialité des données Finance ; cadrer l'audit des pratiques IA pour tous les départements (d'abord People &amp; Finance).</span></li>
+      <li><strong>Cartographie des accès partagés</strong><span>Drives, comptes de service, credentials API à sécuriser.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Credentials v1 + permissions RH (Lucca)</strong><span>Déployer le cadre credentials v1 ; gérer les permissions RH dans Lucca.</span></li>
+      <li><strong>Fiche ROI par initiative + 1ers chiffres</strong><span>Chaque initiative remplit sa fiche ; les premiers chiffres remontent.</span></li>
+      <li><strong>1er dashboard ROI net au COMEX</strong><span>Première version du tableau de bord ROI net (valeur créée moins coûts).</span></li>
+      <li><strong>Audit IA livré (People &amp; Finance)</strong><span>Socle des futurs projets de ces équipes.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Conformité au-delà de Dust, opposable</strong><span>Étendre à tous types d'agents et autres OS ; l'inventaire Dust + workflow existent déjà.</span></li>
+      <li><strong>Workflows critiques fiabilisés</strong><span>Revue, monitoring, pas d'angle mort sur les plus critiques.</span></li>
+      <li><strong>Agentic Playbook = référence unique</strong><span>Référence pour créer n'importe quel agent.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title"><span class="num">5.</span> Enablement (adoption)</div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Cas d'usage « quand Claude est utile »</strong><span>Publier des exemples concrets par métier.</span></li>
+      <li><strong>Ops &amp; Champions = relais</strong><span>Formation et support assurés localement.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Communauté AI Ops + Champions animée</strong><span>Rituel régulier et partage des réussites.</span></li>
+      <li><strong>Permanences IA</strong><span>Créneaux d'aide ouverts (drop-in) pour accompagner les équipes au quotidien.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Dashboard d'adoption (tous outils IA)</strong><span>Pour les managers : actifs, temps gagné, agents/personne, équipes avec agent en process.</span></li>
+      <li><strong>5 équipes avec un agent en process documenté</strong><span>Objectif d'industrialisation.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="section">Partie 2 — Par département</div>
+<p class="section-note">Les AI Ops et Champions travaillent déjà sur toutes les équipes ; un AI Ops dédié par équipe monte en puissance autour de fin juin. Les livraisons sont déjà engagées.</p>
+
+<div class="lane">
+  <div class="lane-title">Marketing <span class="own">· Yves</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Cadrage des cas prioritaires</strong><span>Publicité en ligne et réutilisation de contenu SEO / GEO.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Agent d'optimisation publicité en ligne</strong><span>1er agent livré (reporting + recommandations paid media).</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Contenu &amp; veille concurrentielle</strong><span>Agents de production de contenu et de veille en service.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title">Product <span class="own">· Florent</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Cadrage specs &amp; comm produit</strong><span>Identifier les cas autour des specs (PRD) et de la communication produit.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Agents specs + comm produit</strong><span>Rédaction de PRD et communication produit en continu.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Signaux clients → décisions</strong><span>Un agent transforme les signaux clients en décisions stratégiques.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title">Sales <span class="own">· Sébastien</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Cadrage des cas prioritaires</strong><span>Avec les équipes prospection et avant-vente.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Prospection + mise en service</strong><span>Un agent enrichit les listes de prospection ; un autre accélère la mise en service après essai.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Cycle complet + 2e vague d'UC</strong><span>Les agents couvrent prospection → expansion ; ouverture d'une 2e vague d'UC au-delà des 4 premiers (demande Sébastien).</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title">Customer Success <span class="own">· Kilian</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Mémoire client + onboarding</strong><span>Structurer la mémoire client et le parcours d'accueil dans le RO OS.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Agent d'onboarding client</strong><span>En service.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Mémoire client → agents</strong><span>Engagements et décisions alimentent les agents (amorce Leeloo).</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title">People <span class="own">· Jessica</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Agent d'orchestration d'arrivée</strong><span>Remplace les automatisations manuelles. Distinct de Luciole, l'agent d'accueil déjà live.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Offboarding + suivi des entretiens</strong><span>Agents lancés.</span></li>
+      <li><strong>Audit des pratiques IA</strong><span>Socle des futurs projets de l'équipe.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Espace RH partagé et sécurisé</strong><span>En place.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title">Finance &amp; Legal <span class="own">· Caroline / Simon / Florent C.</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Wiki Finance dans Workspace</strong><span>Confidentialité des données cadrée (réconciliation décalée).</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Réconciliation cadrée</strong><span>Décalée ici et cadrée, une fois la confidentialité posée.</span></li>
+      <li><strong>Audit des pratiques IA</strong><span>Socle des futurs projets de l'équipe.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Réconciliation automatisée</strong><span>Réconciliation des factures automatisée ; reporting mensuel cadré.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="lane">
+  <div class="lane-title">Tech / Engineering <span class="own">· Aymeric / Etienne · Henri</span></div>
+  <div class="cols">
+    <div class="col"><h4>J+30</h4><ul>
+      <li><strong>Rationaliser et documenter l'outillage</strong><span>Priorité : réduire le nombre de dépôts GitHub, supprimer l'obsolète.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+60</h4><ul>
+      <li><strong>Données contextualisées + écritures CRM</strong><span>Données contextualisées pour les agents ; écritures CRM sécurisées.</span></li>
+    </ul></div>
+    <div class="col"><h4>J+90</h4><ul>
+      <li><strong>Premières boucles automatisées</strong><span>Tests, corrections, vers une chaîne de dev assistée.</span></li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="footer">
+  Déclinaison opérationnelle du deck Execs · v2 — 22 juin 2026 · Aïssatou Gassama, Head of Business &amp; Agentic Systems. Document interne — ne pas diffuser hors périmètre autorisé. Charges projets = board Monday « BUILD | CRM &amp; Agentic Planning ».
+</div>
+
+</body>
+</html>

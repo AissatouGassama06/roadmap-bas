@@ -16,8 +16,8 @@ Le dossier a été déplacé depuis `Downloads` vers la racine utilisateur. Chem
 
 ```
 /Users/aissatougassama2/Roadmaps-Projets/roadmap-bas/
-├── roadmap-crm-agentique-q2.html          # version INTERNE (3 onglets : OKRs, Roadmap, Suivi 19 briefs)
-├── roadmap-crm-agentique-q2-externe.html  # version EXTERNE (2 onglets : Roadmap, Suivi 19 briefs — PAS d'OKR)
+├── roadmap-business-agentic-systems.html          # version INTERNE (3 onglets : OKRs, Roadmap, Suivi 19 briefs)
+├── roadmap-business-agentic-systems-externe.html  # version EXTERNE (2 onglets : Roadmap, Suivi 19 briefs — PAS d'OKR)
 └── .git/                                  # dépôt publié sur GitHub Pages
 ```
 
